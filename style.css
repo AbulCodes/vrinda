@@ -1,0 +1,1026 @@
+/* ========= GOOGLE FONT ========= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ========= RESET ========= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:"Poppins",sans-serif;
+    background:#06060a;
+    color:#fff;
+    overflow-x:hidden;
+    position:relative;
+
+}
+
+/* ========= SCROLLBAR ========= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0d0d14;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff5ea8;
+    border-radius:20px;
+}
+
+/* ========= BACKGROUND ========= */
+
+.background{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-5;
+
+    background:
+    radial-gradient(circle at top,#5f2bff33,transparent 35%),
+    radial-gradient(circle at bottom,#ff4fa633,transparent 35%),
+    linear-gradient(#050509,#090915);
+
+}
+
+/* ========= STARS ========= */
+
+.stars{
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    opacity:.25;
+
+    animation:moveStars 90s linear infinite;
+
+}
+
+@keyframes moveStars{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-1200px);
+
+    }
+
+}
+
+/* ========= LOADER ========= */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#050509;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+    transition:1s;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+}
+
+.loader-content h1{
+
+    font-size:2rem;
+
+    color:#ff71b5;
+
+}
+
+.loader-content p{
+
+    color:#d9d9d9;
+
+    margin-top:10px;
+
+}
+
+/* ========= HERO ========= */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:25px;
+
+}
+
+.hero h1{
+
+    font-size:2.6rem;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+}
+
+.hero h2{
+
+    margin-top:18px;
+
+    color:#ff8bc5;
+
+    font-size:2rem;
+
+}
+
+.hero p{
+
+    max-width:330px;
+
+    margin-top:20px;
+
+    line-height:1.8;
+
+    color:#d7d7d7;
+
+}
+
+/* ========= BUTTON ========= */
+
+button{
+
+    margin-top:35px;
+
+    padding:15px 38px;
+
+    border:none;
+
+    border-radius:999px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:linear-gradient(
+        135deg,
+        #ff4fa6,
+        #9a4dff
+    );
+
+    transition:.35s;
+
+    box-shadow:
+    0 0 35px #ff5ea855;
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+button:active{
+
+    transform:scale(.95);
+
+}
+
+/* ========= CARD ========= */
+
+.glass-card{
+
+    width:min(92%,420px);
+
+    margin:35px auto;
+
+    padding:28px;
+
+    border-radius:28px;
+
+    backdrop-filter:blur(16px);
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.35);
+
+}
+
+.glass-card h2{
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    color:#ffd0e5;
+
+}
+
+.glass-card p{
+
+    line-height:1.8;
+
+    color:#ececec;
+
+}
+
+/* ========= DAY COUNTER ========= */
+
+.counter-section{
+
+    text-align:center;
+
+}
+
+#dayCounter{
+
+    margin-top:18px;
+
+    font-size:3rem;
+
+    font-weight:700;
+
+    color:#ff8bc5;
+
+    text-shadow:
+
+    0 0 25px #ff4fa6;
+
+}
+
+/* ========= REASON ========= */
+
+.reason-card{
+
+    margin-top:20px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.06);
+
+}
+
+.reason-card h3{
+
+    color:#ff9ccd;
+
+    margin-bottom:8px;
+
+}
+/* ========================================================= */
+/* ====================== PART 2A =========================== */
+/* ========================================================= */
+
+
+/* MUSIC BUTTON */
+
+#musicBtn{
+    width:100%;
+}
+
+
+/* FUTURE CARD */
+
+.glass-card:last-of-type{
+
+    text-align:center;
+
+}
+
+
+/* SURPRISE SECTION */
+
+.surprise{
+
+    text-align:center;
+
+}
+
+
+/* ================= POPUP ================= */
+
+#popup{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.82);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.4s;
+
+    padding:20px;
+
+    z-index:1000;
+
+}
+
+#popup.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.popup-card{
+
+    width:100%;
+
+    max-width:360px;
+
+    padding:30px;
+
+    border-radius:28px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(22px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    animation:popupScale .45s ease;
+
+}
+
+.popup-card h2{
+
+    color:#ff8dc7;
+
+    margin-bottom:15px;
+
+}
+
+.popup-card p{
+
+    color:#efefef;
+
+    line-height:1.8;
+
+}
+
+#closePopup{
+
+    margin-top:25px;
+
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+
+    padding:70px 25px 45px;
+
+    text-align:center;
+
+}
+
+footer h2{
+
+    color:#ff8bc5;
+
+    margin-bottom:10px;
+
+}
+
+footer p{
+
+    color:#bdbdbd;
+
+}
+
+
+/* ================= FLOATING HEART ================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    color:#ff6fb5;
+
+    font-size:18px;
+
+    animation:floatHeart linear forwards;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+    opacity:.8;
+
+}
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform:
+        translateY(0)
+        scale(.5);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:
+        translateY(-110vh)
+        rotate(360deg)
+        scale(1.3);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ================= SHOOTING STAR ================= */
+
+.shooting-star{
+
+    position:fixed;
+
+    width:120px;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        to right,
+        white,
+        transparent
+    );
+
+    transform:rotate(-35deg);
+
+    opacity:.8;
+
+    animation:shoot 1.5s linear forwards;
+
+    z-index:-2;
+
+}
+
+@keyframes shoot{
+
+    from{
+
+        transform:
+        translate(0,0)
+        rotate(-35deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:
+        translate(450px,450px)
+        rotate(-35deg);
+
+        opacity:0;
+
+    }
+
+}
+
+
+/* ================= GLOW ================= */
+
+.glass-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    border-radius:inherit;
+
+    padding:1px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        rgba(255,255,255,.18),
+        rgba(255,255,255,0)
+    );
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+            mask-composite:exclude;
+
+    pointer-events:none;
+
+}
+
+.glass-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+/* ================= HOVER EFFECT ================= */
+
+.glass-card:hover{
+
+    transform:translateY(-6px);
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 18px 40px rgba(255,79,166,.18),
+
+    0 0 60px rgba(154,77,255,.10);
+
+}
+
+
+/* ================= SECTION FADE ================= */
+
+.fade{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    transition:
+
+    opacity .8s ease,
+
+    transform .8s ease;
+
+}
+
+.fade.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/* ================= POPUP ANIMATION ================= */
+
+@keyframes popupScale{
+
+    from{
+
+        transform:
+
+        scale(.75);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:
+
+        scale(1);
+
+        opacity:1;
+
+    }
+
+}
+/* ========================================================= */
+/* ====================== PART 2B =========================== */
+/* ========================================================= */
+
+
+/* ================= BUTTON SHINE ================= */
+
+button{
+    position:relative;
+    overflow:hidden;
+}
+
+button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:-120%;
+
+    width:70%;
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+    );
+
+    transform:skewX(-25deg);
+
+}
+
+button:hover::before{
+
+    animation:shine .8s linear;
+
+}
+
+@keyframes shine{
+
+    from{
+        left:-120%;
+    }
+
+    to{
+        left:150%;
+    }
+
+}
+
+
+/* ================= HERO GLOW ================= */
+
+.hero h1{
+
+    text-shadow:
+
+    0 0 15px rgba(255,120,180,.5),
+
+    0 0 45px rgba(154,77,255,.25);
+
+}
+
+.hero h2{
+
+    text-shadow:
+
+    0 0 20px rgba(255,120,180,.35);
+
+}
+
+
+/* ================= AURORA ================= */
+
+.background::before,
+
+.background::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(90px);
+
+    opacity:.18;
+
+}
+
+.background::before{
+
+    background:#ff4fa6;
+
+    top:-120px;
+    left:-120px;
+
+    animation:aurora1 18s ease-in-out infinite alternate;
+
+}
+
+.background::after{
+
+    background:#8b5cf6;
+
+    right:-120px;
+    bottom:-120px;
+
+    animation:aurora2 22s ease-in-out infinite alternate;
+
+}
+
+@keyframes aurora1{
+
+    from{
+
+        transform:
+        translate(0,0)
+        scale(1);
+
+    }
+
+    to{
+
+        transform:
+        translate(140px,120px)
+        scale(1.3);
+
+    }
+
+}
+
+@keyframes aurora2{
+
+    from{
+
+        transform:
+        translate(0,0)
+        scale(1);
+
+    }
+
+    to{
+
+        transform:
+        translate(-120px,-140px)
+        scale(1.25);
+
+    }
+
+}
+
+
+/* ================= LOADER HIDE ================= */
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+
+/* ================= CARD ANIMATION ================= */
+
+.glass-card{
+
+    animation:cardFloat 6s ease-in-out infinite;
+
+}
+
+@keyframes cardFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-4px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:480px){
+
+.hero{
+
+    padding:22px;
+
+}
+
+.hero h1{
+
+    font-size:2.1rem;
+
+}
+
+.hero h2{
+
+    font-size:1.6rem;
+
+}
+
+.hero p{
+
+    font-size:.95rem;
+
+}
+
+.glass-card{
+
+    width:92%;
+
+    padding:22px;
+
+    border-radius:22px;
+
+}
+
+#dayCounter{
+
+    font-size:2.4rem;
+
+}
+
+button{
+
+    width:100%;
+
+    padding:16px;
+
+}
+
+.popup-card{
+
+    padding:24px;
+
+}
+
+}
+
+
+/* ================= TABLET ================= */
+
+@media(min-width:768px){
+
+.glass-card{
+
+    max-width:650px;
+
+}
+
+.hero h1{
+
+    font-size:4rem;
+
+}
+
+.hero h2{
+
+    font-size:2.6rem;
+
+}
+
+.hero p{
+
+    max-width:500px;
+
+    font-size:1.1rem;
+
+}
+
+}
+
+
+/* ================= SMALL ANIMATIONS ================= */
+
+.reason-card{
+
+    transition:.35s;
+
+}
+
+.reason-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:rgba(255,120,180,.25);
+
+    box-shadow:
+
+    0 10px 30px rgba(255,120,180,.12);
+
+}
+
+#dayCounter{
+
+    animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.05);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* ================= SELECTION ================= */
+
+::selection{
+
+    background:#ff5ea8;
+
+    color:white;
+
+}
+
+
+/* ================= END ================= */
