@@ -9,38 +9,50 @@ window.addEventListener("load", () => {
 });
 
 // ===========================
+// FLOATING COUNTER
+// ===========================
+
+const floatingCounter = document.getElementById("floatingCounter");
+
+// ===========================
 // START BUTTON
 // ===========================
 
 document.getElementById("startBtn").addEventListener("click", () => {
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth"
-    });
-});
-
-// ===========================
-// DAY COUNTER
-// Proposal Date: 22 June 2026
-// ===========================
-const floatingCounter =
-document.getElementById("floatingCounter");
-
-document
-.getElementById("startBtn")
-.addEventListener("click",()=>{
 
     floatingCounter.classList.add("show");
 
     window.scrollTo({
-
-        top:window.innerHeight,
-
-        behavior:"smooth"
-
+        top: window.innerHeight,
+        behavior: "smooth"
     });
 
 });
+
+// ===========================
+// DAY COUNTER
+// ===========================
+
+// CHANGE THIS DATE IF NEEDED
+const proposalDate = new Date(2026, 5, 22); // June = 5
+
+function updateDayCounter() {
+
+    const today = new Date();
+
+    const difference = today - proposalDate;
+
+    const days = Math.floor(
+        difference / (1000 * 60 * 60 * 24)
+    );
+
+    document.getElementById("dayCounter").textContent =
+        `${days} Days`;
+
+}
+
+updateDayCounter();
+
 
 // ===========================
 // LETTER POPUP
@@ -48,220 +60,223 @@ document
 
 const letterPopup = document.getElementById("letterPopup");
 
-document
-.getElementById("openLetter")
-.addEventListener("click",()=>{
+document.getElementById("openLetter").onclick = () => {
 
     letterPopup.classList.add("show");
 
-});
+};
 
-document
-.getElementById("closeLetter")
-.addEventListener("click",()=>{
+document.getElementById("closeLetter").onclick = () => {
 
     letterPopup.classList.remove("show");
 
-});
+};
+
 
 // ===========================
 // SURPRISE POPUP
 // ===========================
 
-const popup=document.getElementById("popup");
+const popup = document.getElementById("popup");
 
-document
-.getElementById("surpriseBtn")
-.addEventListener("click",()=>{
+document.getElementById("surpriseBtn").onclick = () => {
 
     popup.classList.add("show");
 
-});
+};
 
-document
-.getElementById("closePopup")
-.addEventListener("click",()=>{
+document.getElementById("closePopup").onclick = () => {
 
     popup.classList.remove("show");
 
-});
+};
+
 
 // ===========================
 // FLOATING HEARTS
 // ===========================
 
-function createHeart(){
+function createHeart() {
 
-    const heart=document.createElement("div");
+    const heart = document.createElement("div");
 
-    heart.className="heart";
+    heart.className = "heart";
 
-    heart.innerHTML="❤️";
+    heart.innerHTML = "❤️";
 
-    heart.style.left=Math.random()*100+"vw";
+    heart.style.left = Math.random() * 100 + "vw";
 
-    heart.style.fontSize=
-    (15+Math.random()*20)+"px";
+    heart.style.fontSize =
+        (15 + Math.random() * 18) + "px";
 
-    heart.style.animationDuration=
-    (6+Math.random()*4)+"s";
+    heart.style.animationDuration =
+        (6 + Math.random() * 4) + "s";
 
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         heart.remove();
 
-    },10000);
+    }, 10000);
 
 }
 
-setInterval(createHeart,1800);
+setInterval(createHeart, 1800);
+
 
 // ===========================
-// SHOOTING STAR
+// SHOOTING STARS
 // ===========================
 
-function shootingStar(){
+function shootingStar() {
 
-    const star=document.createElement("div");
+    const star = document.createElement("div");
 
-    star.className="shooting-star";
+    star.className = "shooting-star";
 
-    star.style.left=Math.random()*80+"vw";
+    star.style.left = Math.random() * 80 + "vw";
 
-    star.style.top=Math.random()*35+"vh";
+    star.style.top = Math.random() * 35 + "vh";
 
     document.body.appendChild(star);
 
-    setTimeout(()=>{
+    setTimeout(() => {
 
         star.remove();
 
-    },1500);
+    }, 1500);
 
 }
 
-setInterval(shootingStar,7000);
+setInterval(shootingStar, 7000);
+
 
 // ===========================
-// SCROLL ANIMATION
+// SCROLL REVEAL
 // ===========================
 
-const cards=document.querySelectorAll(".glass-card");
+const cards = document.querySelectorAll(".glass-card");
 
-cards.forEach(card=>{
+cards.forEach(card => {
 
     card.classList.add("fade");
 
 });
 
-const observer=new IntersectionObserver(entries=>{
+const observer = new IntersectionObserver(entries => {
 
-entries.forEach(entry=>{
+    entries.forEach(entry => {
 
-if(entry.isIntersecting){
+        if (entry.isIntersecting) {
 
-entry.target.classList.add("show");
+            entry.target.classList.add("show");
 
-}
+        }
+
+    });
+
+}, {
+
+    threshold: .15
+
+});
+
+cards.forEach(card => {
+
+    observer.observe(card);
 
 });
 
-},{threshold:.15});
-
-cards.forEach(card=>{
-
-observer.observe(card);
-
-});
 
 // ===========================
 // MUSIC PLAYER
 // ===========================
 
-const music=document.getElementById("music");
+const music = document.getElementById("music");
 
-const musicBtn=document.getElementById("musicBtn");
+const musicBtn = document.getElementById("musicBtn");
 
-let playing=false;
+let playing = false;
 
-musicBtn.addEventListener("click",()=>{
+musicBtn.addEventListener("click", () => {
 
-if(!music.querySelector("source")){
+    if (!music.querySelector("source")) {
 
-alert("Add your song first ❤️");
+        alert("Add your song first ❤️");
 
-return;
+        return;
 
-}
+    }
 
-if(!playing){
+    if (!playing) {
 
-music.play();
+        music.play();
 
-musicBtn.innerHTML="⏸ Pause";
+        musicBtn.innerHTML = "⏸ Pause";
 
-playing=true;
+        playing = true;
 
-}else{
+    } else {
 
-music.pause();
+        music.pause();
 
-musicBtn.innerHTML="▶ Play Our Song";
+        musicBtn.innerHTML = "▶ Play Our Song";
 
-playing=false;
+        playing = false;
 
-}
+    }
 
 });
+
 
 // ===========================
 // BUTTON RIPPLE
 // ===========================
 
-document.querySelectorAll("button").forEach(button=>{
+document.querySelectorAll("button").forEach(button => {
 
-button.addEventListener("click",function(e){
+    button.addEventListener("click", function (e) {
 
-const ripple=document.createElement("span");
+        const ripple = document.createElement("span");
 
-const size=Math.max(
-this.clientWidth,
-this.clientHeight
-);
+        const size = Math.max(
+            this.clientWidth,
+            this.clientHeight
+        );
 
-ripple.style.width=size+"px";
-ripple.style.height=size+"px";
+        ripple.style.width = size + "px";
+        ripple.style.height = size + "px";
 
-ripple.style.left=e.offsetX-size/2+"px";
-ripple.style.top=e.offsetY-size/2+"px";
+        ripple.style.left = e.offsetX - size / 2 + "px";
+        ripple.style.top = e.offsetY - size / 2 + "px";
 
-ripple.style.position="absolute";
-ripple.style.borderRadius="50%";
-ripple.style.background="rgba(255,255,255,.35)";
-ripple.style.transform="scale(0)";
-ripple.style.animation="ripple .6s linear";
+        ripple.style.position = "absolute";
+        ripple.style.borderRadius = "50%";
+        ripple.style.background = "rgba(255,255,255,.35)";
+        ripple.style.transform = "scale(0)";
+        ripple.style.animation = "ripple .6s linear";
 
-this.appendChild(ripple);
+        this.appendChild(ripple);
 
-setTimeout(()=>{
+        setTimeout(() => {
 
-ripple.remove();
+            ripple.remove();
 
-},600);
+        }, 600);
+
+    });
 
 });
 
-});
 
 // ===========================
 // RIPPLE CSS
 // ===========================
 
-const rippleStyle=document.createElement("style");
+const rippleStyle = document.createElement("style");
 
-rippleStyle.innerHTML=`
+rippleStyle.innerHTML = `
 
 button{
 
@@ -287,12 +302,13 @@ opacity:0;
 
 document.head.appendChild(rippleStyle);
 
+
 // ===========================
-// AUTO SCROLL TO TOP
+// RESET SCROLL
 // ===========================
 
-window.onbeforeunload=()=>{
+window.onbeforeunload = () => {
 
-window.scrollTo(0,0);
+    window.scrollTo(0, 0);
 
 };
