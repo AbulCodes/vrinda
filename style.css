@@ -1158,3 +1158,56 @@ button{
     color:white;
 
 }
+#websiteContent{
+    display:none;
+}
+
+#passwordScreen{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#07070d;
+    z-index:999999;
+    padding:20px;
+}
+
+.password-card{
+    width:100%;
+    max-width:360px;
+    padding:35px;
+    border-radius:28px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.1);
+    text-align:center;
+}
+
+.password-card h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+.password-card input{
+    width:100%;
+    padding:15px;
+    margin:20px 0;
+    border:none;
+    outline:none;
+    border-radius:14px;
+    background:rgba(255,255,255,.08);
+    color:white;
+    font-size:16px;
+    text-align:center;
+}
+
+.password-card button{
+    width:100%;
+}
+
+#wrongPassword{
+    color:#ff8fae;
+    margin-top:15px;
+    font-size:14px;
+}
