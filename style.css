@@ -1087,3 +1087,72 @@ button{
 .popup-card button{
     width:100%;
 }
+/* ================= FLOATING COUNTER ================= */
+
+#floatingCounter{
+
+    position:fixed;
+
+    top:18px;
+
+    right:18px;
+
+    width:115px;
+
+    padding:14px;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    text-align:center;
+
+    z-index:999;
+
+    opacity:0;
+
+    transform:
+
+    translateY(-30px)
+    scale(.9);
+
+    transition:.5s;
+
+}
+
+#floatingCounter.show{
+
+    opacity:1;
+
+    transform:
+
+    translateY(0)
+    scale(1);
+
+}
+
+.counter-title{
+
+    display:block;
+
+    font-size:.72rem;
+
+    color:#ffc6df;
+
+    margin-bottom:5px;
+
+}
+
+#dayCounter{
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:white;
+
+}

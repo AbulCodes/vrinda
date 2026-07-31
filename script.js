@@ -23,18 +23,24 @@ document.getElementById("startBtn").addEventListener("click", () => {
 // DAY COUNTER
 // Proposal Date: 22 June 2026
 // ===========================
+const floatingCounter =
+document.getElementById("floatingCounter");
 
-const proposalDate = new Date("2026-06-22");
-const today = new Date();
+document
+.getElementById("startBtn")
+.addEventListener("click",()=>{
 
-const difference = today - proposalDate;
+    floatingCounter.classList.add("show");
 
-const days = Math.floor(
-    difference / (1000 * 60 * 60 * 24)
-);
+    window.scrollTo({
 
-document.getElementById("dayCounter").innerHTML =
-`${days} Days ❤️`;
+        top:window.innerHeight,
+
+        behavior:"smooth"
+
+    });
+
+});
 
 // ===========================
 // LETTER POPUP
