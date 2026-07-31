@@ -1,6 +1,22 @@
-// ===========================
-// INTRO
-// ===========================
+ // ==========================================
+// LOADER
+// ==========================================
+
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        document
+            .getElementById("loader")
+            .classList.add("hide");
+
+    }, 1800);
+
+});
+
+// ==========================================
+// INTRO FLOW
+// ==========================================
 
 const PASSWORD = "0000";
 
@@ -16,313 +32,196 @@ document.getElementById("openingScreen");
 const website =
 document.getElementById("websiteContent");
 
-document
-.getElementById("continueBtn")
-.onclick=()=>{
+const continueBtn =
+document.getElementById("continueBtn");
 
-welcomeScreen.style.display="none";
+const unlockBtn =
+document.getElementById("unlockBtn");
 
-passwordScreen.style.display="flex";
+const passwordInput =
+document.getElementById("passwordInput");
 
-};
+const wrongPassword =
+document.getElementById("wrongPassword");
 
-document
-.getElementById("unlockBtn")
-.onclick=()=>{
+continueBtn.addEventListener("click",()=>{
 
-const value=
-document
-.getElementById("passwordInput")
-.value;
+    welcomeScreen.style.display="none";
 
-if(value===PASSWORD){
-
-passwordScreen.style.display="none";
-
-openingScreen.style.display="flex";
-
-setTimeout(()=>{
-
-openingScreen.style.display="none";
-
-website.style.display="block";
-
-},1800);
-
-}else{
-
-document
-.getElementById("wrongPassword")
-.innerHTML="Wrong Password ❤️";
-
-}
-
-};
-
-document
-.getElementById("passwordInput")
-.addEventListener("keydown",(e)=>{
-
-if(e.key==="Enter"){
-
-document
-.getElementById("unlockBtn")
-.click();
-
-}
-
-});
-// ===========================
-// PASSWORD
-// ===========================
-
-const PASSWORD = "0000";
-
-window.addEventListener("load", () => {
-
-    document.getElementById("loader").classList.add("hide");
+    passwordScreen.style.display="flex";
 
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+unlockBtn.addEventListener("click",()=>{
 
-    const passwordScreen = document.getElementById("passwordScreen");
-    const websiteContent = document.getElementById("websiteContent");
+    if(passwordInput.value===PASSWORD){
 
-    document.getElementById("unlockBtn").onclick = () => {
+        passwordScreen.style.display="none";
 
-        const entered =
-            document.getElementById("passwordInput").value;
+        openingScreen.style.display="flex";
 
-        if (entered === PASSWORD) {
+        setTimeout(()=>{
 
-            passwordScreen.style.display = "none";
-            websiteContent.style.display = "block";
+            openingScreen.style.display="none";
 
-        } else {
+            website.style.display="block";
 
-            document.getElementById("wrongPassword").textContent =
-                "Wrong Password ❤️";
+        },1800);
 
-        }
+    }
 
-    };
+    else{
 
-    document.getElementById("passwordInput").addEventListener("keydown", (e) => {
+        wrongPassword.innerHTML="Wrong Password ❤️";
 
-        if (e.key === "Enter") {
-
-            document.getElementById("unlockBtn").click();
-
-        }
-
-    });
+    }
 
 });
-// ===========================
-// LOADER
-// ===========================
 
-window.addEventListener("load", () => {
-    setTimeout(() => {
-        document.getElementById("loader").classList.add("hide");
-    }, 1800);
+passwordInput.addEventListener("keydown",(e)=>{
+
+    if(e.key==="Enter"){
+
+        unlockBtn.click();
+
+    }
+
 });
 
-// ===========================
-// FLOATING COUNTER
-// ===========================
+// ==========================================
+// HERO BUTTON
+// ==========================================
 
-const floatingCounter = document.getElementById("floatingCounter");
+const floatingCounter =
+document.getElementById("floatingCounter");
 
-// ===========================
-// START BUTTON
-// ===========================
-
-document.getElementById("startBtn").addEventListener("click", () => {
+document
+.getElementById("startBtn")
+.addEventListener("click",()=>{
 
     floatingCounter.classList.add("show");
 
     window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth"
+
+        top:window.innerHeight,
+
+        behavior:"smooth"
+
     });
 
 });
-
-// ===========================
+// ==========================================
 // DAY COUNTER
-// ===========================
+// Proposal Date: 22 June 2026
+// ==========================================
 
-// CHANGE THIS DATE IF NEEDED
-const proposalDate = new Date(2026, 5, 22); // June = 5
+const proposalDate = new Date("2026-06-22T00:00:00");
 
-function updateDayCounter() {
+function updateCounter(){
 
     const today = new Date();
 
-    const difference = today - proposalDate;
+    const difference =
+        today - proposalDate;
 
-    const days = Math.floor(
-        difference / (1000 * 60 * 60 * 24)
-    );
+    const days =
+        Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
 
-    document.getElementById("dayCounter").textContent =
-        `${days} Days`;
+    document
+        .getElementById("dayCounter")
+        .innerHTML = days + " Days";
 
 }
 
-updateDayCounter();
+updateCounter();
 
-
-// ===========================
+// ==========================================
 // LETTER POPUP
-// ===========================
+// ==========================================
 
-const letterPopup = document.getElementById("letterPopup");
+const letterPopup =
+document.getElementById("letterPopup");
 
-document.getElementById("openLetter").onclick = () => {
+document
+.getElementById("openLetter")
+.addEventListener("click",()=>{
 
     letterPopup.classList.add("show");
 
-};
+});
 
-document.getElementById("closeLetter").onclick = () => {
+document
+.getElementById("closeLetter")
+.addEventListener("click",()=>{
 
     letterPopup.classList.remove("show");
 
-};
+});
 
+// Close when tapping outside
 
-// ===========================
+letterPopup.addEventListener("click",(e)=>{
+
+    if(e.target===letterPopup){
+
+        letterPopup.classList.remove("show");
+
+    }
+
+});
+
+// ==========================================
 // SURPRISE POPUP
-// ===========================
+// ==========================================
 
-const popup = document.getElementById("popup");
+const popup =
+document.getElementById("popup");
 
-document.getElementById("surpriseBtn").onclick = () => {
+document
+.getElementById("surpriseBtn")
+.addEventListener("click",()=>{
 
     popup.classList.add("show");
 
-};
+});
 
-document.getElementById("closePopup").onclick = () => {
+document
+.getElementById("closePopup")
+.addEventListener("click",()=>{
 
     popup.classList.remove("show");
 
-};
+});
 
+// Close when tapping outside
 
-// ===========================
-// FLOATING HEARTS
-// ===========================
+popup.addEventListener("click",(e)=>{
 
-function createHeart() {
+    if(e.target===popup){
 
-    const heart = document.createElement("div");
+        popup.classList.remove("show");
 
-    heart.className = "heart";
-
-    heart.innerHTML = "❤️";
-
-    heart.style.left = Math.random() * 100 + "vw";
-
-    heart.style.fontSize =
-        (15 + Math.random() * 18) + "px";
-
-    heart.style.animationDuration =
-        (6 + Math.random() * 4) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-
-        heart.remove();
-
-    }, 10000);
-
-}
-
-setInterval(createHeart, 1800);
-
-
-// ===========================
-// SHOOTING STARS
-// ===========================
-
-function shootingStar() {
-
-    const star = document.createElement("div");
-
-    star.className = "shooting-star";
-
-    star.style.left = Math.random() * 80 + "vw";
-
-    star.style.top = Math.random() * 35 + "vh";
-
-    document.body.appendChild(star);
-
-    setTimeout(() => {
-
-        star.remove();
-
-    }, 1500);
-
-}
-
-setInterval(shootingStar, 7000);
-
-
-// ===========================
-// SCROLL REVEAL
-// ===========================
-
-const cards = document.querySelectorAll(".glass-card");
-
-cards.forEach(card => {
-
-    card.classList.add("fade");
+    }
 
 });
 
-const observer = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-            entry.target.classList.add("show");
-
-        }
-
-    });
-
-}, {
-
-    threshold: .15
-
-});
-
-cards.forEach(card => {
-
-    observer.observe(card);
-
-});
-
-
-// ===========================
+// ==========================================
 // MUSIC PLAYER
-// ===========================
+// ==========================================
 
-const music = document.getElementById("music");
+const music =
+document.getElementById("music");
 
-const musicBtn = document.getElementById("musicBtn");
+const musicBtn =
+document.getElementById("musicBtn");
 
 let playing = false;
 
-musicBtn.addEventListener("click", () => {
+musicBtn.addEventListener("click",()=>{
 
-    if (!music.querySelector("source")) {
+    if(!music.querySelector("source")){
 
         alert("Add your song first ❤️");
 
@@ -330,106 +229,238 @@ musicBtn.addEventListener("click", () => {
 
     }
 
-    if (!playing) {
+    if(!playing){
 
         music.play();
 
-        musicBtn.innerHTML = "⏸ Pause";
+        musicBtn.innerHTML =
+        "⏸ Pause";
 
         playing = true;
 
-    } else {
+    }
+
+    else{
 
         music.pause();
 
-        musicBtn.innerHTML = "▶ Play Our Song";
+        musicBtn.innerHTML =
+        "▶ Play Our Song";
 
         playing = false;
 
     }
 
 });
+// ==========================================
+// FLOATING HEARTS
+// ==========================================
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerHTML = "❤️";
+
+    heart.style.left =
+    Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+    (16 + Math.random()*18) + "px";
+
+    heart.style.animationDuration =
+    (6 + Math.random()*3) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+
+        heart.remove();
+
+    },9000);
+
+}
+
+setInterval(createHeart,1800);
 
 
-// ===========================
-// BUTTON RIPPLE
-// ===========================
+// ==========================================
+// SHOOTING STAR
+// ==========================================
 
-document.querySelectorAll("button").forEach(button => {
+function shootingStar(){
 
-    button.addEventListener("click", function (e) {
+    const star =
+    document.createElement("div");
 
-        const ripple = document.createElement("span");
+    star.className = "shooting-star";
 
-        const size = Math.max(
-            this.clientWidth,
-            this.clientHeight
-        );
+    star.style.left =
+    Math.random()*80 + "vw";
 
-        ripple.style.width = size + "px";
-        ripple.style.height = size + "px";
+    star.style.top =
+    Math.random()*35 + "vh";
 
-        ripple.style.left = e.offsetX - size / 2 + "px";
-        ripple.style.top = e.offsetY - size / 2 + "px";
+    document.body.appendChild(star);
 
-        ripple.style.position = "absolute";
-        ripple.style.borderRadius = "50%";
-        ripple.style.background = "rgba(255,255,255,.35)";
-        ripple.style.transform = "scale(0)";
-        ripple.style.animation = "ripple .6s linear";
+    setTimeout(()=>{
 
-        this.appendChild(ripple);
+        star.remove();
 
-        setTimeout(() => {
+    },1500);
 
-            ripple.remove();
+}
 
-        }, 600);
+setInterval(shootingStar,7000);
 
-    });
+
+// ==========================================
+// SCROLL ANIMATION
+// ==========================================
+
+const cards =
+document.querySelectorAll(".glass-card");
+
+cards.forEach(card=>{
+
+    card.classList.add("fade");
+
+});
+
+const observer =
+new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{
+threshold:.15
+});
+
+cards.forEach(card=>{
+
+observer.observe(card);
 
 });
 
 
-// ===========================
-// RIPPLE CSS
-// ===========================
+// ==========================================
+// RIPPLE EFFECT
+// ==========================================
 
-const rippleStyle = document.createElement("style");
+document
+.querySelectorAll("button")
+.forEach(button=>{
 
-rippleStyle.innerHTML = `
+button.addEventListener("click",function(e){
 
-button{
+const ripple =
+document.createElement("span");
 
-position:relative;
+const size =
+Math.max(
+this.clientWidth,
+this.clientHeight
+);
 
-overflow:hidden;
+ripple.style.width =
+size+"px";
+
+ripple.style.height =
+size+"px";
+
+ripple.style.left =
+e.offsetX-size/2+"px";
+
+ripple.style.top =
+e.offsetY-size/2+"px";
+
+ripple.style.position =
+"absolute";
+
+ripple.style.borderRadius =
+"50%";
+
+ripple.style.background =
+"rgba(255,255,255,.35)";
+
+ripple.style.transform =
+"scale(0)";
+
+ripple.style.animation =
+"ripple .6s linear";
+
+this.appendChild(ripple);
+
+setTimeout(()=>{
+
+ripple.remove();
+
+},600);
+
+});
+
+});
+
+
+// ==========================================
+// OPENING TEXT ANIMATION
+// ==========================================
+
+const unlockText =
+document.getElementById("unlockText");
+
+let dots = 0;
+
+setInterval(()=>{
+
+if(openingScreen.style.display==="flex"){
+
+dots++;
+
+if(dots>3){
+
+dots=0;
 
 }
 
-@keyframes ripple{
-
-to{
-
-transform:scale(4);
-
-opacity:0;
+unlockText.innerHTML =
+"Unlocking your surprise" +
+".".repeat(dots);
 
 }
 
-}
-
-`;
-
-document.head.appendChild(rippleStyle);
+},450);
 
 
-// ===========================
-// RESET SCROLL
-// ===========================
+// ==========================================
+// ALWAYS START FROM TOP
+// ==========================================
 
-window.onbeforeunload = () => {
+window.onbeforeunload=()=>{
 
-    window.scrollTo(0, 0);
+window.scrollTo(0,0);
 
 };
+
+
+// ==========================================
+// PREVENT PAGE DRAG ON MOBILE
+// ==========================================
+
+document.addEventListener(
+"gesturestart",
+function(e){
+
+e.preventDefault();
+
+});

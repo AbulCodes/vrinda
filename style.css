@@ -1,7 +1,6 @@
-/* ========= GOOGLE FONT ========= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-/* ========= RESET ========= */
+ /* ========================= */
+/* RESET */
+/* ========================= */
 
 *{
     margin:0;
@@ -15,80 +14,55 @@ html{
 
 body{
 
-    font-family:"Poppins",sans-serif;
-    background:#06060a;
+    font-family:'Poppins',sans-serif;
+
+    background:#06070f;
+
     color:#fff;
+
     overflow-x:hidden;
-    position:relative;
 
 }
 
-/* ========= SCROLLBAR ========= */
-
-::-webkit-scrollbar{
-    width:8px;
-}
-
-::-webkit-scrollbar-track{
-    background:#0d0d14;
-}
-
-::-webkit-scrollbar-thumb{
-    background:#ff5ea8;
-    border-radius:20px;
-}
-
-/* ========= BACKGROUND ========= */
+/* ========================= */
+/* BACKGROUND */
+/* ========================= */
 
 .background{
 
     position:fixed;
+
     inset:0;
-    overflow:hidden;
-    z-index:-5;
+
+    z-index:-3;
 
     background:
-    radial-gradient(circle at top,#5f2bff33,transparent 35%),
-    radial-gradient(circle at bottom,#ff4fa633,transparent 35%),
-    linear-gradient(#050509,#090915);
+    radial-gradient(circle at top,#47215c,#090b15 60%);
+
+    overflow:hidden;
 
 }
-
-/* ========= STARS ========= */
 
 .stars{
 
     position:absolute;
-    inset:0;
+
+    width:100%;
+    height:100%;
 
     background-image:
+
     radial-gradient(white 1px,transparent 1px);
 
-    background-size:45px 45px;
+    background-size:55px 55px;
 
-    opacity:.25;
-
-    animation:moveStars 90s linear infinite;
+    opacity:.15;
 
 }
 
-@keyframes moveStars{
-
-    from{
-
-        transform:translateY(0);
-
-    }
-
-    to{
-
-        transform:translateY(-1200px);
-
-    }
-
-}
-
-/* ========= LOADER ========= */
+/* ========================= */
+/* LOADER */
+/* ========================= */
 
 #loader{
 
@@ -96,7 +70,7 @@ body{
 
     inset:0;
 
-    background:#050509;
+    background:#05060c;
 
     display:flex;
 
@@ -104,9 +78,17 @@ body{
 
     align-items:center;
 
-    z-index:999;
+    z-index:999999;
 
-    transition:1s;
+    transition:.8s;
+
+}
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
 
 }
 
@@ -118,21 +100,213 @@ body{
 
 .loader-content h1{
 
-    font-size:2rem;
+    font-size:42px;
 
-    color:#ff71b5;
+    margin-bottom:15px;
 
 }
 
 .loader-content p{
 
-    color:#d9d9d9;
-
-    margin-top:10px;
+    opacity:.75;
 
 }
 
-/* ========= HERO ========= */
+/* ========================= */
+/* INTRO SCREENS */
+/* ========================= */
+
+#welcomeScreen,
+#passwordScreen,
+#openingScreen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+    background:#05060c;
+
+    z-index:999998;
+
+}
+
+#passwordScreen{
+
+    display:none;
+
+}
+
+#openingScreen{
+
+    display:none;
+
+}
+
+#websiteContent{
+
+    display:none;
+
+}
+
+/* ========================= */
+/* INTRO CARD */
+/* ========================= */
+
+.password-card{
+
+    width:100%;
+
+    max-width:360px;
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    animation:pop .7s ease;
+
+}
+
+.password-card h2{
+
+    margin:15px 0;
+
+    font-size:28px;
+
+}
+
+.password-card p{
+
+    opacity:.8;
+
+    line-height:1.7;
+
+}
+
+/* ========================= */
+/* ICON */
+/* ========================= */
+
+.intro-icon{
+
+    font-size:70px;
+
+    animation:float 3s infinite ease-in-out;
+
+}
+
+/* ========================= */
+/* INPUT */
+/* ========================= */
+
+.password-card input{
+
+    width:100%;
+
+    margin:25px 0;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    text-align:center;
+
+    font-size:16px;
+
+}
+
+.password-card input::placeholder{
+
+    color:#ddd;
+
+}
+
+/* ========================= */
+/* BUTTON */
+/* ========================= */
+
+button{
+
+    padding:15px 28px;
+
+    border:none;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+
+    linear-gradient(135deg,#ff5fa2,#ff8d8d);
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 15px 35px rgba(255,80,150,.35);
+
+}
+
+button:active{
+
+    transform:scale(.97);
+
+}
+
+/* ========================= */
+/* WRONG PASSWORD */
+/* ========================= */
+
+#wrongPassword{
+
+    color:#ff8ca9;
+
+    margin-top:15px;
+
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
 
 .hero{
 
@@ -154,241 +328,84 @@ body{
 
 .hero h1{
 
-    font-size:2.6rem;
+    font-size:44px;
 
-    font-weight:800;
-
-    line-height:1.1;
+    line-height:1.2;
 
 }
 
 .hero h2{
 
-    margin-top:18px;
+    margin-top:20px;
 
-    color:#ff8bc5;
+    font-size:32px;
 
-    font-size:2rem;
+    color:#ff8cb6;
 
 }
 
 .hero p{
 
-    max-width:330px;
+    margin:20px 0 35px;
 
-    margin-top:20px;
+    max-width:420px;
 
-    line-height:1.8;
+    opacity:.82;
 
-    color:#d7d7d7;
-
-}
-
-/* ========= BUTTON ========= */
-
-button{
-
-    margin-top:35px;
-
-    padding:15px 38px;
-
-    border:none;
-
-    border-radius:999px;
-
-    font-size:16px;
-
-    cursor:pointer;
-
-    color:white;
-
-    background:linear-gradient(
-        135deg,
-        #ff4fa6,
-        #9a4dff
-    );
-
-    transition:.35s;
-
-    box-shadow:
-    0 0 35px #ff5ea855;
+    line-height:1.7;
 
 }
 
-button:hover{
+/* ========================= */
+/* ANIMATIONS */
+/* ========================= */
 
-    transform:translateY(-4px);
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
 
 }
 
-button:active{
+50%{
 
-    transform:scale(.95);
+transform:translateY(-10px);
 
 }
 
-/* ========= CARD ========= */
+}
+
+@keyframes pop{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+/* ========================= */
+/* GLASS CARD */
+/* ========================= */
 
 .glass-card{
 
-    width:min(92%,420px);
+    width:min(92%,500px);
 
-    margin:35px auto;
+    margin:30px auto;
 
     padding:28px;
-
-    border-radius:28px;
-
-    backdrop-filter:blur(16px);
-
-    background:rgba(255,255,255,.06);
-
-    border:1px solid rgba(255,255,255,.08);
-
-    box-shadow:
-
-    0 15px 35px rgba(0,0,0,.35);
-
-}
-
-.glass-card h2{
-
-    text-align:center;
-
-    margin-bottom:18px;
-
-    color:#ffd0e5;
-
-}
-
-.glass-card p{
-
-    line-height:1.8;
-
-    color:#ececec;
-
-}
-
-/* ========= DAY COUNTER ========= */
-
-.counter-section{
-
-    text-align:center;
-
-}
-
-#dayCounter{
-
-    margin-top:18px;
-
-    font-size:3rem;
-
-    font-weight:700;
-
-    color:#ff8bc5;
-
-    text-shadow:
-
-    0 0 25px #ff4fa6;
-
-}
-
-/* ========= REASON ========= */
-
-.reason-card{
-
-    margin-top:20px;
-
-    padding:18px;
-
-    border-radius:18px;
-
-    background:rgba(255,255,255,.05);
-
-    border:1px solid rgba(255,255,255,.06);
-
-}
-
-.reason-card h3{
-
-    color:#ff9ccd;
-
-    margin-bottom:8px;
-
-}
-/* ========================================================= */
-/* ====================== PART 2A =========================== */
-/* ========================================================= */
-
-
-/* MUSIC BUTTON */
-
-#musicBtn{
-    width:100%;
-}
-
-
-/* FUTURE CARD */
-
-.glass-card:last-of-type{
-
-    text-align:center;
-
-}
-
-
-/* SURPRISE SECTION */
-
-.surprise{
-
-    text-align:center;
-
-}
-
-
-/* ================= POPUP ================= */
-
-#popup{
-
-    position:fixed;
-
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:rgba(0,0,0,.82);
-
-    opacity:0;
-
-    visibility:hidden;
-
-    transition:.4s;
-
-    padding:20px;
-
-    z-index:1000;
-
-}
-
-#popup.show{
-
-    opacity:1;
-
-    visibility:visible;
-
-}
-
-.popup-card{
-
-    width:100%;
-
-    max-width:360px;
-
-    padding:30px;
 
     border-radius:28px;
 
@@ -396,231 +413,249 @@ button:active{
 
     background:rgba(255,255,255,.08);
 
-    backdrop-filter:blur(22px);
+    backdrop-filter:blur(18px);
 
-    border:1px solid rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.1);
 
-    animation:popupScale .45s ease;
+    box-shadow:
 
-}
+    0 15px 40px rgba(0,0,0,.25);
 
-.popup-card h2{
-
-    color:#ff8dc7;
-
-    margin-bottom:15px;
+    transition:.45s;
 
 }
-
-.popup-card p{
-
-    color:#efefef;
-
-    line-height:1.8;
-
-}
-
-#closePopup{
-
-    margin-top:25px;
-
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-
-    padding:70px 25px 45px;
-
-    text-align:center;
-
-}
-
-footer h2{
-
-    color:#ff8bc5;
-
-    margin-bottom:10px;
-
-}
-
-footer p{
-
-    color:#bdbdbd;
-
-}
-
-
-/* ================= FLOATING HEART ================= */
-
-.heart{
-
-    position:fixed;
-
-    bottom:-40px;
-
-    color:#ff6fb5;
-
-    font-size:18px;
-
-    animation:floatHeart linear forwards;
-
-    pointer-events:none;
-
-    z-index:-1;
-
-    opacity:.8;
-
-}
-
-@keyframes floatHeart{
-
-    0%{
-
-        transform:
-        translateY(0)
-        scale(.5);
-
-        opacity:0;
-
-    }
-
-    20%{
-
-        opacity:1;
-
-    }
-
-    100%{
-
-        transform:
-        translateY(-110vh)
-        rotate(360deg)
-        scale(1.3);
-
-        opacity:0;
-
-    }
-
-}
-
-
-/* ================= SHOOTING STAR ================= */
-
-.shooting-star{
-
-    position:fixed;
-
-    width:120px;
-
-    height:2px;
-
-    background:
-    linear-gradient(
-        to right,
-        white,
-        transparent
-    );
-
-    transform:rotate(-35deg);
-
-    opacity:.8;
-
-    animation:shoot 1.5s linear forwards;
-
-    z-index:-2;
-
-}
-
-@keyframes shoot{
-
-    from{
-
-        transform:
-        translate(0,0)
-        rotate(-35deg);
-
-        opacity:1;
-
-    }
-
-    to{
-
-        transform:
-        translate(450px,450px)
-        rotate(-35deg);
-
-        opacity:0;
-
-    }
-
-}
-
-
-/* ================= GLOW ================= */
-
-.glass-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:-1px;
-
-    border-radius:inherit;
-
-    padding:1px;
-
-    background:
-
-    linear-gradient(
-        135deg,
-        rgba(255,255,255,.18),
-        rgba(255,255,255,0)
-    );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite:xor;
-    mask-composite:exclude;
-
-    pointer-events:none;
-
-}
-
-.glass-card{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-
-/* ================= HOVER EFFECT ================= */
 
 .glass-card:hover{
 
     transform:translateY(-6px);
 
-    transition:.35s;
+}
 
-    box-shadow:
+.glass-card h2{
 
-    0 18px 40px rgba(255,79,166,.18),
+    margin-bottom:18px;
 
-    0 0 60px rgba(154,77,255,.10);
+    font-size:30px;
 
 }
 
+.glass-card p{
 
-/* ================= SECTION FADE ================= */
+    opacity:.85;
+
+    line-height:1.8;
+
+}
+
+/* ========================= */
+/* FLOATING COUNTER */
+/* ========================= */
+
+#floatingCounter{
+
+    position:fixed;
+
+    top:18px;
+
+    right:18px;
+
+    z-index:999;
+
+    display:none;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:6px;
+
+    padding:14px 18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.1);
+
+    animation:pop .5s;
+
+}
+
+#floatingCounter.show{
+
+    display:flex;
+
+}
+
+.counter-title{
+
+    font-size:13px;
+
+    opacity:.8;
+
+}
+
+#dayCounter{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#ff8db7;
+
+}
+
+/* ========================= */
+/* REASON CARDS */
+/* ========================= */
+
+.reason-card{
+
+    margin-top:22px;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.05);
+
+    transition:.35s;
+
+}
+
+.reason-card:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(255,255,255,.08);
+
+}
+
+.reason-card h3{
+
+    margin-bottom:12px;
+
+    font-size:22px;
+
+}
+
+.reason-card p{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+}
+
+/* ========================= */
+/* LETTER POPUP */
+/* ========================= */
+
+#letterPopup{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(12px);
+
+    z-index:9999;
+
+}
+
+#letterPopup.show{
+
+    display:flex;
+
+}
+
+.popup-card{
+
+    width:min(95%,600px);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    padding:30px;
+
+    border-radius:25px;
+
+    background:#121420;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.popup-card h2{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.letter-content{
+
+    line-height:1.9;
+
+    font-size:15px;
+
+    text-align:left;
+
+}
+
+.letter-content strong{
+
+    color:#ff8db7;
+
+}
+
+.popup-card button{
+
+    width:100%;
+
+    margin-top:25px;
+
+}
+
+/* ========================= */
+/* MUSIC */
+/* ========================= */
+
+#musicBtn{
+
+    margin-top:18px;
+
+    width:100%;
+
+}
+
+/* ========================= */
+/* FUTURE */
+/* ========================= */
+
+.glass-card strong{
+
+    color:#ff8db7;
+
+}
+
+/* ========================= */
+/* FADE ANIMATION */
+/* ========================= */
 
 .fade{
 
@@ -628,11 +663,7 @@ footer p{
 
     transform:translateY(60px);
 
-    transition:
-
-    opacity .8s ease,
-
-    transform .8s ease;
+    transition:1s;
 
 }
 
@@ -643,667 +674,404 @@ footer p{
     transform:translateY(0);
 
 }
-
-
-/* ================= POPUP ANIMATION ================= */
-
-@keyframes popupScale{
-
-    from{
-
-        transform:
-
-        scale(.75);
-
-        opacity:0;
-
-    }
-
-    to{
-
-        transform:
-
-        scale(1);
-
-        opacity:1;
-
-    }
-
-}
-/* ========================================================= */
-/* ====================== PART 2B =========================== */
-/* ========================================================= */
-
-
-/* ================= BUTTON SHINE ================= */
-
-button{
-    position:relative;
-    overflow:hidden;
-}
-
-button::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:0;
-    left:-120%;
-
-    width:70%;
-    height:100%;
-
-    background:linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.45),
-        transparent
-    );
-
-    transform:skewX(-25deg);
-
-}
-
-button:hover::before{
-
-    animation:shine .8s linear;
-
-}
-
-@keyframes shine{
-
-    from{
-        left:-120%;
-    }
-
-    to{
-        left:150%;
-    }
-
-}
-
-
-/* ================= HERO GLOW ================= */
-
-.hero h1{
-
-    text-shadow:
-
-    0 0 15px rgba(255,120,180,.5),
-
-    0 0 45px rgba(154,77,255,.25);
-
-}
-
-.hero h2{
-
-    text-shadow:
-
-    0 0 20px rgba(255,120,180,.35);
-
-}
-
-
-/* ================= AURORA ================= */
-
-.background::before,
-
-.background::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:420px;
-    height:420px;
-
-    border-radius:50%;
-
-    filter:blur(90px);
-
-    opacity:.18;
-
-}
-
-.background::before{
-
-    background:#ff4fa6;
-
-    top:-120px;
-    left:-120px;
-
-    animation:aurora1 18s ease-in-out infinite alternate;
-
-}
-
-.background::after{
-
-    background:#8b5cf6;
-
-    right:-120px;
-    bottom:-120px;
-
-    animation:aurora2 22s ease-in-out infinite alternate;
-
-}
-
-@keyframes aurora1{
-
-    from{
-
-        transform:
-        translate(0,0)
-        scale(1);
-
-    }
-
-    to{
-
-        transform:
-        translate(140px,120px)
-        scale(1.3);
-
-    }
-
-}
-
-@keyframes aurora2{
-
-    from{
-
-        transform:
-        translate(0,0)
-        scale(1);
-
-    }
-
-    to{
-
-        transform:
-        translate(-120px,-140px)
-        scale(1.25);
-
-    }
-
-}
-
-
-/* ================= LOADER HIDE ================= */
-
-#loader.hide{
-
-    opacity:0;
-
-    visibility:hidden;
-
-}
-
-
-/* ================= CARD ANIMATION ================= */
-
-.glass-card{
-
-    animation:cardFloat 6s ease-in-out infinite;
-
-}
-
-@keyframes cardFloat{
-
-    0%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-4px);
-
-    }
-
-    100%{
-
-        transform:translateY(0);
-
-    }
-
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:480px){
-
-.hero{
-
-    padding:22px;
-
-}
-
-.hero h1{
-
-    font-size:2.1rem;
-
-}
-
-.hero h2{
-
-    font-size:1.6rem;
-
-}
-
-.hero p{
-
-    font-size:.95rem;
-
-}
-
-.glass-card{
-
-    width:92%;
-
-    padding:22px;
-
-    border-radius:22px;
-
-}
-
-#dayCounter{
-
-    font-size:2.4rem;
-
-}
-
-button{
-
-    width:100%;
-
-    padding:16px;
-
-}
-
-.popup-card{
-
-    padding:24px;
-
-}
-
-}
-
-
-/* ================= TABLET ================= */
-
-@media(min-width:768px){
-
-.glass-card{
-
-    max-width:650px;
-
-}
-
-.hero h1{
-
-    font-size:4rem;
-
-}
-
-.hero h2{
-
-    font-size:2.6rem;
-
-}
-
-.hero p{
-
-    max-width:500px;
-
-    font-size:1.1rem;
-
-}
-
-}
-
-
-/* ================= SMALL ANIMATIONS ================= */
-
-.reason-card{
-
-    transition:.35s;
-
-}
-
-.reason-card:hover{
-
-    transform:translateY(-5px);
-
-    border-color:rgba(255,120,180,.25);
-
-    box-shadow:
-
-    0 10px 30px rgba(255,120,180,.12);
-
-}
-
-#dayCounter{
-
-    animation:pulse 2s infinite;
-
-}
-
-@keyframes pulse{
-
-    0%{
-
-        transform:scale(1);
-
-    }
-
-    50%{
-
-        transform:scale(1.05);
-
-    }
-
-    100%{
-
-        transform:scale(1);
-
-    }
-
-}
-
-
-/* ================= SELECTION ================= */
-
-::selection{
-
-    background:#ff5ea8;
-
-    color:white;
-
-}
-
-
 /* ========================= */
-/* LETTER POPUP */
+/* SURPRISE POPUP */
 /* ========================= */
 
-#letterPopup{
+#popup{
+
     position:fixed;
+
     inset:0;
-    display:flex;
+
+    display:none;
+
     justify-content:center;
+
     align-items:center;
-    background:rgba(0,0,0,.85);
-    backdrop-filter:blur(8px);
-    opacity:0;
-    visibility:hidden;
-    transition:.4s;
-    z-index:9999;
+
     padding:20px;
+
+    background:rgba(0,0,0,.65);
+
+    backdrop-filter:blur(12px);
+
+    z-index:9999;
+
 }
 
-#letterPopup.show{
-    opacity:1;
-    visibility:visible;
+#popup.show{
+
+    display:flex;
+
 }
 
-.letter-content{
-    max-height:60vh;
-    overflow-y:auto;
-    text-align:left;
-    line-height:1.9;
-    margin:20px 0;
-    padding-right:8px;
-}
+/* ========================= */
+/* FOOTER */
+/* ========================= */
 
-.letter-content::-webkit-scrollbar{
-    width:6px;
-}
+footer{
 
-.letter-content::-webkit-scrollbar-thumb{
-    background:#ff69b4;
-    border-radius:20px;
-}
-
-#openLetter{
-    width:100%;
-}
-
-.popup-card{
-    width:min(92%,420px);
-    border-radius:28px;
-    padding:28px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(20px);
-    border:1px solid rgba(255,255,255,.1);
-    box-shadow:0 20px 60px rgba(0,0,0,.45);
-}
-
-.popup-card h2{
     text-align:center;
-    color:#ff8bc5;
+
+    padding:60px 25px 40px;
+
 }
 
-.popup-card button{
-    width:100%;
-}
-/* ================= FLOATING COUNTER ================= */
+footer h2{
 
-#floatingCounter{
+    font-size:30px;
+
+    margin-bottom:18px;
+
+}
+
+footer p{
+
+    opacity:.8;
+
+    margin-bottom:15px;
+
+}
+
+footer small{
+
+    opacity:.65;
+
+    line-height:1.8;
+
+}
+
+/* ========================= */
+/* HEARTS */
+/* ========================= */
+
+.heart{
 
     position:fixed;
 
-    top:18px;
+    bottom:-40px;
 
-    right:18px;
-
-    width:115px;
-
-    padding:14px;
-
-    border-radius:22px;
-
-    background:rgba(255,255,255,.08);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    text-align:center;
+    pointer-events:none;
 
     z-index:999;
 
-    opacity:0;
-
-    transform:
-
-    translateY(-30px)
-    scale(.9);
-
-    transition:.5s;
+    animation:heartFloat linear forwards;
 
 }
 
-#floatingCounter.show{
+@keyframes heartFloat{
 
-    opacity:1;
+0%{
 
-    transform:
+transform:translateY(0) scale(.8);
 
-    translateY(0)
-    scale(1);
+opacity:0;
 
 }
 
-.counter-title{
+15%{
 
-    display:block;
+opacity:1;
 
-    font-size:.72rem;
+}
 
-    color:#ffc6df;
+100%{
 
-    margin-bottom:5px;
+transform:translateY(-110vh) scale(1.4);
+
+opacity:0;
+
+}
+
+}
+
+/* ========================= */
+/* SHOOTING STAR */
+/* ========================= */
+
+.shooting-star{
+
+    position:fixed;
+
+    width:160px;
+
+    height:2px;
+
+    background:linear-gradient(90deg,#fff,transparent);
+
+    transform:rotate(-25deg);
+
+    pointer-events:none;
+
+    z-index:5;
+
+    animation:shoot 1.5s linear forwards;
+
+}
+
+@keyframes shoot{
+
+0%{
+
+opacity:0;
+
+transform:
+translate(0,0)
+rotate(-25deg);
+
+}
+
+15%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translate(-350px,350px)
+rotate(-25deg);
+
+}
+
+}
+
+/* ========================= */
+/* BUTTON RIPPLE */
+/* ========================= */
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+@keyframes ripple{
+
+to{
+
+transform:scale(4);
+
+opacity:0;
+
+}
+
+}
+
+/* ========================= */
+/* SCROLLBAR */
+/* ========================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0a0b13;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff77aa;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff4f92;
+
+}
+
+/* ========================= */
+/* SELECTION */
+/* ========================= */
+
+::selection{
+
+    background:#ff5fa2;
+
+    color:white;
+
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:34px;
+
+}
+
+.hero h2{
+
+font-size:27px;
+
+}
+
+.hero p{
+
+font-size:15px;
+
+}
+
+.glass-card{
+
+padding:24px;
+
+}
+
+.glass-card h2{
+
+font-size:25px;
+
+}
+
+.reason-card h3{
+
+font-size:20px;
+
+}
+
+.password-card{
+
+padding:28px;
+
+}
+
+.popup-card{
+
+padding:22px;
+
+}
+
+#floatingCounter{
+
+top:12px;
+
+right:12px;
+
+padding:12px 16px;
 
 }
 
 #dayCounter{
 
-    font-size:1.1rem;
-
-    font-weight:700;
-
-    color:white;
+font-size:20px;
 
 }
-#websiteContent{
-    display:none;
+
 }
 
-#passwordScreen{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#07070d;
-    z-index:999999;
-    padding:20px;
-}
-
-.password-card{
-    width:100%;
-    max-width:360px;
-    padding:35px;
-    border-radius:28px;
-    background:rgba(255,255,255,.08);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.1);
-    text-align:center;
-}
-
-.password-card h1{
-    font-size:55px;
-    margin-bottom:10px;
-}
-
-.password-card input{
-    width:100%;
-    padding:15px;
-    margin:20px 0;
-    border:none;
-    outline:none;
-    border-radius:14px;
-    background:rgba(255,255,255,.08);
-    color:white;
-    font-size:16px;
-    text-align:center;
-}
-
-.password-card button{
-    width:100%;
-}
-
-#wrongPassword{
-    color:#ff8fae;
-    margin-top:15px;
-    font-size:14px;
-}
 /* ========================= */
-/* INTRO SCREENS */
+/* SMALL PHONES */
 /* ========================= */
 
-#websiteContent{
-    display:none;
-}
+@media(max-width:430px){
 
-#welcomeScreen,
-#passwordScreen,
-#openingScreen{
+.hero{
 
-    position:fixed;
-    inset:0;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    background:#05050b;
-
-    z-index:999999;
-
-    padding:25px;
+padding:20px;
 
 }
 
-#passwordScreen{
+.hero h1{
 
-    display:none;
-
-}
-
-#openingScreen{
-
-    display:none;
+font-size:30px;
 
 }
 
-.password-card{
+.hero h2{
 
-    width:100%;
-    max-width:360px;
-
-    padding:35px;
-
-    text-align:center;
-
-    border-radius:28px;
-
-    background:rgba(255,255,255,.08);
-
-    border:1px solid rgba(255,255,255,.12);
-
-    backdrop-filter:blur(20px);
+font-size:24px;
 
 }
 
-.password-card input{
+.glass-card{
 
-    width:100%;
-
-    margin:25px 0;
-
-    padding:15px;
-
-    border:none;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
-    text-align:center;
-
-    font-size:16px;
-
-    outline:none;
+width:94%;
 
 }
 
-.password-card button{
+button{
 
-    width:100%;
+width:100%;
 
 }
 
-#wrongPassword{
+.password-card h2{
 
-    margin-top:15px;
+font-size:24px;
 
-    color:#ff7fa4;
+}
+
+.intro-icon{
+
+font-size:60px;
+
+}
+
+}
+
+/* ========================= */
+/* EXTRA ANIMATIONS */
+/* ========================= */
+
+.glass-card{
+
+animation:floatCard 6s ease-in-out infinite;
+
+}
+
+@keyframes floatCard{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-4px);
+
+}
+
+}
+
+.hero h1{
+
+animation:glow 3s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+text-shadow:0 0 10px rgba(255,90,150,.3);
+
+}
+
+to{
+
+text-shadow:0 0 25px rgba(255,90,150,.8);
+
+}
 
 }
