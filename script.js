@@ -1,4 +1,78 @@
 // ===========================
+// INTRO
+// ===========================
+
+const PASSWORD = "0000";
+
+const welcomeScreen =
+document.getElementById("welcomeScreen");
+
+const passwordScreen =
+document.getElementById("passwordScreen");
+
+const openingScreen =
+document.getElementById("openingScreen");
+
+const website =
+document.getElementById("websiteContent");
+
+document
+.getElementById("continueBtn")
+.onclick=()=>{
+
+welcomeScreen.style.display="none";
+
+passwordScreen.style.display="flex";
+
+};
+
+document
+.getElementById("unlockBtn")
+.onclick=()=>{
+
+const value=
+document
+.getElementById("passwordInput")
+.value;
+
+if(value===PASSWORD){
+
+passwordScreen.style.display="none";
+
+openingScreen.style.display="flex";
+
+setTimeout(()=>{
+
+openingScreen.style.display="none";
+
+website.style.display="block";
+
+},1800);
+
+}else{
+
+document
+.getElementById("wrongPassword")
+.innerHTML="Wrong Password ❤️";
+
+}
+
+};
+
+document
+.getElementById("passwordInput")
+.addEventListener("keydown",(e)=>{
+
+if(e.key==="Enter"){
+
+document
+.getElementById("unlockBtn")
+.click();
+
+}
+
+});
+// ===========================
 // PASSWORD
 // ===========================
 
