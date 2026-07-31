@@ -15,37 +15,23 @@ document
 });
 
 // ==========================================
-// PASSWORD
+// PASSWORD SYSTEM
 // ==========================================
 
 const PASSWORD="Foreverus";
 
-const welcomeScreen=
-document.getElementById("welcomeScreen");
+const welcomeScreen=document.getElementById("welcomeScreen");
+const passwordScreen=document.getElementById("passwordScreen");
+const openingScreen=document.getElementById("openingScreen");
+const website=document.getElementById("websiteContent");
 
-const passwordScreen=
-document.getElementById("passwordScreen");
+const continueBtn=document.getElementById("continueBtn");
+const unlockBtn=document.getElementById("unlockBtn");
 
-const openingScreen=
-document.getElementById("openingScreen");
+const passwordInput=document.getElementById("passwordInput");
+const wrongPassword=document.getElementById("wrongPassword");
 
-const website=
-document.getElementById("websiteContent");
-
-const continueBtn=
-document.getElementById("continueBtn");
-
-const unlockBtn=
-document.getElementById("unlockBtn");
-
-const passwordInput=
-document.getElementById("passwordInput");
-
-const wrongPassword=
-document.getElementById("wrongPassword");
-
-const unlockText=
-document.getElementById("unlockText");
+const unlockText=document.getElementById("unlockText");
 
 continueBtn.addEventListener("click",()=>{
 
@@ -59,7 +45,7 @@ unlockBtn.addEventListener("click",()=>{
 
 if(passwordInput.value===PASSWORD){
 
-wrongPassword.textContent="";
+wrongPassword.innerHTML="";
 
 passwordScreen.style.display="none";
 
@@ -77,7 +63,7 @@ website.style.display="block";
 
 else{
 
-wrongPassword.textContent="Wrong Password ❤️";
+wrongPassword.innerHTML="Wrong Password ❤️";
 
 passwordInput.value="";
 
@@ -96,6 +82,34 @@ unlockBtn.click();
 });
 
 // ==========================================
+// OPENING TEXT
+// ==========================================
+
+let dots=0;
+
+setInterval(()=>{
+
+if(openingScreen.style.display==="flex"){
+
+dots++;
+
+if(dots>3){
+
+dots=0;
+
+}
+
+unlockText.innerHTML=
+
+"Unlocking your surprise"+
+
+".".repeat(dots);
+
+}
+
+},450);
+
+// ==========================================
 // DAY COUNTER
 // ==========================================
 
@@ -112,20 +126,30 @@ today.setHours(0,0,0,0);
 const diff=today-proposalDate;
 
 const days=Math.floor(
+
 diff/(1000*60*60*24)
+
 );
 
 document
 .getElementById("dayCounter")
-.textContent=`${days} Days`;
+.innerHTML=days+" Days";
 
 }
 
 updateCounter();
 
+setInterval(updateCounter,3600000);
+
 // ==========================================
-// MUSIC
+// HERO BUTTON
 // ==========================================
+
+const floatingCounter=
+document.getElementById("floatingCounter");
+
+const startBtn=
+document.getElementById("startBtn");
 
 const music=
 document.getElementById("music");
@@ -139,16 +163,7 @@ document.getElementById("albumArt");
 const miniPlay=
 document.getElementById("miniPlay");
 
-// ==========================================
-// HERO BUTTON
-// ==========================================
-
-const floatingCounter=
-document.getElementById("floatingCounter");
-
-document
-.getElementById("startBtn")
-.addEventListener("click",()=>{
+startBtn.addEventListener("click",()=>{
 
 floatingCounter.classList.add("show");
 
@@ -160,11 +175,15 @@ behavior:"smooth"
 
 });
 
+// Start Music
+
 music.play().catch(()=>{
 
-console.log("Autoplay blocked.");
+console.log("Autoplay blocked");
 
 });
+
+// Show Player after 10 sec
 
 setTimeout(()=>{
 
@@ -175,7 +194,7 @@ miniPlayer.classList.add("show");
 });
 
 // ==========================================
-// MINI PLAYER
+// MINI PLAYER BUTTON
 // ==========================================
 
 miniPlay.addEventListener("click",()=>{
@@ -184,19 +203,11 @@ if(music.paused){
 
 music.play();
 
-miniPlay.innerHTML="⏸";
-
-albumArt.classList.remove("pause");
-
 }
 
 else{
 
 music.pause();
-
-miniPlay.innerHTML="▶";
-
-albumArt.classList.add("pause");
 
 }
 
@@ -272,6 +283,55 @@ popup.classList.remove("show");
 });
 
 // ==========================================
+// MINI DISC
+// ==========================================
+
+const footer=
+document.querySelector("footer");
+
+const miniDisc=
+document.getElementById("miniDisc");
+
+const footerObserver=
+new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+miniPlayer.classList.remove("show");
+
+miniDisc.classList.add("show");
+
+}
+
+else{
+
+miniPlayer.classList.add("show");
+
+miniDisc.classList.remove("show");
+
+}
+
+});
+
+},{
+threshold:0.2
+});
+
+footerObserver.observe(footer);
+
+// Click disc to reopen player
+
+miniDisc.addEventListener("click",()=>{
+
+miniPlayer.classList.add("show");
+
+miniDisc.classList.remove("show");
+
+});
+
+// ==========================================
 // FLOATING HEARTS
 // ==========================================
 
@@ -290,7 +350,7 @@ heart.style.fontSize=
 (16+Math.random()*18)+"px";
 
 heart.style.animationDuration=
-(6+Math.random()*4)+"s";
+(6+Math.random()*3)+"s";
 
 document.body.appendChild(heart);
 
@@ -298,19 +358,20 @@ setTimeout(()=>{
 
 heart.remove();
 
-},10000);
+},9000);
 
 }
 
 setInterval(createHeart,1800);
 
 // ==========================================
-// SHOOTING STARS
+// SHOOTING STAR
 // ==========================================
 
 function createStar(){
 
-const star=document.createElement("div");
+const star=
+document.createElement("div");
 
 star.className="shooting-star";
 
@@ -333,7 +394,7 @@ star.remove();
 setInterval(createStar,7000);
 
 // ==========================================
-// SCROLL REVEAL
+// SCROLL ANIMATION
 // ==========================================
 
 const cards=
@@ -359,9 +420,7 @@ entry.target.classList.add("show");
 });
 
 },{
-
-threshold:0.15
-
+threshold:.15
 });
 
 cards.forEach(card=>{
@@ -369,34 +428,58 @@ cards.forEach(card=>{
 observer.observe(card);
 
 });
-
 // ==========================================
-// OPENING TEXT
+// MUSIC EVENTS
 // ==========================================
 
-let dots=0;
+music.addEventListener("play",()=>{
 
-setInterval(()=>{
+miniPlay.innerHTML="⏸";
 
-if(openingScreen.style.display==="flex"){
+albumArt.classList.remove("pause");
 
-dots++;
+const discArt=document.getElementById("discArt");
 
-if(dots>3){
+if(discArt){
 
-dots=0;
+discArt.classList.remove("pause");
 
 }
 
-unlockText.textContent=
+});
 
-"Unlocking your surprise"+
+music.addEventListener("pause",()=>{
 
-".".repeat(dots);
+miniPlay.innerHTML="▶";
+
+albumArt.classList.add("pause");
+
+const discArt=document.getElementById("discArt");
+
+if(discArt){
+
+discArt.classList.add("pause");
 
 }
 
-},450);
+});
+
+music.addEventListener("ended",()=>{
+
+miniPlay.innerHTML="▶";
+
+albumArt.classList.add("pause");
+
+const discArt=document.getElementById("discArt");
+
+if(discArt){
+
+discArt.classList.add("pause");
+
+}
+
+});
+
 // ==========================================
 // RIPPLE EFFECT
 // ==========================================
@@ -408,30 +491,30 @@ button.addEventListener("click",function(e){
 const ripple=document.createElement("span");
 
 const size=Math.max(
+
 this.clientWidth,
+
 this.clientHeight
+
 );
 
 ripple.style.width=size+"px";
+
 ripple.style.height=size+"px";
 
-ripple.style.left=
-(e.offsetX-size/2)+"px";
+ripple.style.left=(e.offsetX-size/2)+"px";
 
-ripple.style.top=
-(e.offsetY-size/2)+"px";
+ripple.style.top=(e.offsetY-size/2)+"px";
 
 ripple.style.position="absolute";
 
 ripple.style.borderRadius="50%";
 
-ripple.style.background=
-"rgba(255,255,255,.35)";
+ripple.style.background="rgba(255,255,255,.35)";
 
 ripple.style.transform="scale(0)";
 
-ripple.style.animation=
-"ripple .6s linear";
+ripple.style.animation="ripple .6s linear";
 
 this.appendChild(ripple);
 
@@ -478,34 +561,6 @@ opacity:0;
 document.head.appendChild(rippleStyle);
 
 // ==========================================
-// MUSIC EVENTS
-// ==========================================
-
-music.addEventListener("play",()=>{
-
-miniPlay.innerHTML="⏸";
-
-albumArt.classList.remove("pause");
-
-});
-
-music.addEventListener("pause",()=>{
-
-miniPlay.innerHTML="▶";
-
-albumArt.classList.add("pause");
-
-});
-
-music.addEventListener("ended",()=>{
-
-miniPlay.innerHTML="▶";
-
-albumArt.classList.add("pause");
-
-});
-
-// ==========================================
 // ESC CLOSES POPUPS
 // ==========================================
 
@@ -522,7 +577,13 @@ letterPopup.classList.remove("show");
 });
 
 // ==========================================
-// RESET SCROLL
+// PRELOAD MUSIC
+// ==========================================
+
+music.preload="auto";
+
+// ==========================================
+// START FROM TOP
 // ==========================================
 
 window.onbeforeunload=()=>{
@@ -548,27 +609,24 @@ e.preventDefault();
 );
 
 // ==========================================
-// PRELOAD AUDIO
-// ==========================================
-
-music.preload="auto";
-
-// ==========================================
-// AUTO UPDATE DAY COUNTER
-// (refresh every hour)
-// ==========================================
-
-setInterval(updateCounter,3600000);
-
-// ==========================================
 // CONSOLE MESSAGE ❤️
 // ==========================================
 
+console.clear();
+
 console.log(
 
-"%c❤️ Made with love for Vrinda ❤️",
+"%c❤️ Happy Girlfriend Day ❤️",
 
-"color:#ff5ca8;font-size:20px;font-weight:bold;"
+"color:#ff4d8d;font-size:22px;font-weight:bold;"
+
+);
+
+console.log(
+
+"%cMade with ❤️ by Abul",
+
+"color:#ffffff;font-size:16px;"
 
 );
 
@@ -576,6 +634,6 @@ console.log(
 
 "%cForever Us ❤️",
 
-"color:white;font-size:15px;"
+"color:#ff9ecb;font-size:15px;"
 
 );

@@ -1196,3 +1196,62 @@ font-size:1.6rem;
 }
 
 }
+/* ==========================================
+   MINI DISC
+========================================== */
+
+#miniDisc{
+
+position:fixed;
+
+right:20px;
+
+bottom:20px;
+
+width:70px;
+
+height:70px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(15px);
+
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+opacity:0;
+
+pointer-events:none;
+
+transition:.45s;
+
+z-index:9999;
+
+}
+
+#miniDisc.show{
+
+opacity:1;
+
+pointer-events:auto;
+
+}
+
+#discArt{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+animation:spin 8s linear infinite;
+
+}
