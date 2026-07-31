@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
 // INTRO FLOW
 // ==========================================
 
-const PASSWORD = "0000";
+const PASSWORD = "foreverus";
 
 const welcomeScreen =
 document.getElementById("welcomeScreen");
