@@ -8,56 +8,77 @@ window.addEventListener("load", () => {
     }, 1800);
 });
 
-
 // ===========================
 // START BUTTON
 // ===========================
 
-const startBtn = document.getElementById("startBtn");
-
-startBtn.addEventListener("click", () => {
+document.getElementById("startBtn").addEventListener("click", () => {
     window.scrollTo({
         top: window.innerHeight,
         behavior: "smooth"
     });
 });
 
-
 // ===========================
 // DAY COUNTER
 // Proposal Date: 22 June 2026
 // ===========================
 
-const startDate = new Date("2026-06-22");
-
+const proposalDate = new Date("2026-06-22");
 const today = new Date();
 
-const diff = today - startDate;
+const difference = today - proposalDate;
 
-const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+const days = Math.floor(
+    difference / (1000 * 60 * 60 * 24)
+);
 
 document.getElementById("dayCounter").innerHTML =
-`${days} Days`;
-
+`${days} Days ❤️`;
 
 // ===========================
-// POPUP
+// LETTER POPUP
 // ===========================
 
-const popup = document.getElementById("popup");
+const letterPopup = document.getElementById("letterPopup");
 
-document.getElementById("surpriseBtn").onclick = () => {
+document
+.getElementById("openLetter")
+.addEventListener("click",()=>{
+
+    letterPopup.classList.add("show");
+
+});
+
+document
+.getElementById("closeLetter")
+.addEventListener("click",()=>{
+
+    letterPopup.classList.remove("show");
+
+});
+
+// ===========================
+// SURPRISE POPUP
+// ===========================
+
+const popup=document.getElementById("popup");
+
+document
+.getElementById("surpriseBtn")
+.addEventListener("click",()=>{
 
     popup.classList.add("show");
 
-}
+});
 
-document.getElementById("closePopup").onclick = () => {
+document
+.getElementById("closePopup")
+.addEventListener("click",()=>{
 
     popup.classList.remove("show");
 
-}
-
+});
 
 // ===========================
 // FLOATING HEARTS
@@ -65,18 +86,18 @@ document.getElementById("closePopup").onclick = () => {
 
 function createHeart(){
 
-    const heart = document.createElement("div");
+    const heart=document.createElement("div");
 
-    heart.className = "heart";
+    heart.className="heart";
 
-    heart.innerHTML = "❤️";
+    heart.innerHTML="❤️";
 
-    heart.style.left = Math.random()*100+"vw";
+    heart.style.left=Math.random()*100+"vw";
 
-    heart.style.fontSize =
-    (14+Math.random()*18)+"px";
+    heart.style.fontSize=
+    (15+Math.random()*20)+"px";
 
-    heart.style.animationDuration =
+    heart.style.animationDuration=
     (6+Math.random()*4)+"s";
 
     document.body.appendChild(heart);
@@ -91,9 +112,8 @@ function createHeart(){
 
 setInterval(createHeart,1800);
 
-
 // ===========================
-// SHOOTING STARS
+// SHOOTING STAR
 // ===========================
 
 function shootingStar(){
@@ -104,7 +124,7 @@ function shootingStar(){
 
     star.style.left=Math.random()*80+"vw";
 
-    star.style.top=Math.random()*40+"vh";
+    star.style.top=Math.random()*35+"vh";
 
     document.body.appendChild(star);
 
@@ -118,12 +138,11 @@ function shootingStar(){
 
 setInterval(shootingStar,7000);
 
-
 // ===========================
-// SCROLL REVEAL
+// SCROLL ANIMATION
 // ===========================
 
-const cards = document.querySelectorAll(".glass-card");
+const cards=document.querySelectorAll(".glass-card");
 
 cards.forEach(card=>{
 
@@ -131,79 +150,80 @@ cards.forEach(card=>{
 
 });
 
-const observer = new IntersectionObserver(entries=>{
+const observer=new IntersectionObserver(entries=>{
 
-    entries.forEach(entry=>{
+entries.forEach(entry=>{
 
-        if(entry.isIntersecting){
+if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+entry.target.classList.add("show");
 
-        }
+}
 
-    });
+});
 
 },{threshold:.15});
 
 cards.forEach(card=>{
 
-    observer.observe(card);
+observer.observe(card);
 
 });
 
-
 // ===========================
-// MUSIC BUTTON
+// MUSIC PLAYER
 // ===========================
 
-const musicBtn = document.getElementById("musicBtn");
+const music=document.getElementById("music");
 
-const music = document.getElementById("music");
+const musicBtn=document.getElementById("musicBtn");
 
-let playing = false;
+let playing=false;
 
 musicBtn.addEventListener("click",()=>{
 
-    if(!music.src){
+if(!music.querySelector("source")){
 
-        alert("Add your music file first ❤️");
+alert("Add your song first ❤️");
 
-        return;
+return;
 
-    }
+}
 
-    if(!playing){
+if(!playing){
 
-        music.play();
+music.play();
 
-        musicBtn.innerHTML="Pause Music";
+musicBtn.innerHTML="⏸ Pause";
 
-        playing=true;
+playing=true;
 
-    }else{
+}else{
 
-        music.pause();
+music.pause();
 
-        musicBtn.innerHTML="Play Music";
+musicBtn.innerHTML="▶ Play Our Song";
 
-        playing=false;
+playing=false;
 
-    }
+}
 
 });
-
 
 // ===========================
 // BUTTON RIPPLE
 // ===========================
 
-document.querySelectorAll("button").forEach(btn=>{
+document.querySelectorAll("button").forEach(button=>{
 
-btn.addEventListener("click",function(e){
+button.addEventListener("click",function(e){
 
 const ripple=document.createElement("span");
 
-const size=Math.max(this.clientWidth,this.clientHeight);
+const size=Math.max(
+this.clientWidth,
+this.clientHeight
+);
 
 ripple.style.width=size+"px";
 ripple.style.height=size+"px";
@@ -229,14 +249,21 @@ ripple.remove();
 
 });
 
-
 // ===========================
-// RIPPLE STYLE
+// RIPPLE CSS
 // ===========================
 
-const style=document.createElement("style");
+const rippleStyle=document.createElement("style");
 
-style.innerHTML=`
+rippleStyle.innerHTML=`
+
+button{
+
+position:relative;
+
+overflow:hidden;
+
+}
 
 @keyframes ripple{
 
@@ -250,14 +277,16 @@ opacity:0;
 
 }
 
-button{
-
-position:relative;
-
-overflow:hidden;
-
-}
-
 `;
 
-document.head.appendChild(style);
+document.head.appendChild(rippleStyle);
+
+// ===========================
+// AUTO SCROLL TO TOP
+// ===========================
+
+window.onbeforeunload=()=>{
+
+window.scrollTo(0,0);
+
+};
