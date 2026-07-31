@@ -1023,4 +1023,67 @@ button{
 }
 
 
-/* ================= END ================= */
+/* ========================= */
+/* LETTER POPUP */
+/* ========================= */
+
+#letterPopup{
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.85);
+    backdrop-filter:blur(8px);
+    opacity:0;
+    visibility:hidden;
+    transition:.4s;
+    z-index:9999;
+    padding:20px;
+}
+
+#letterPopup.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.letter-content{
+    max-height:60vh;
+    overflow-y:auto;
+    text-align:left;
+    line-height:1.9;
+    margin:20px 0;
+    padding-right:8px;
+}
+
+.letter-content::-webkit-scrollbar{
+    width:6px;
+}
+
+.letter-content::-webkit-scrollbar-thumb{
+    background:#ff69b4;
+    border-radius:20px;
+}
+
+#openLetter{
+    width:100%;
+}
+
+.popup-card{
+    width:min(92%,420px);
+    border-radius:28px;
+    padding:28px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.1);
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+}
+
+.popup-card h2{
+    text-align:center;
+    color:#ff8bc5;
+}
+
+.popup-card button{
+    width:100%;
+}
