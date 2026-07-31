@@ -1,50 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
     <title>Happy Girlfriend Day ❤️</title>
 
     <link rel="stylesheet" href="style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
 </head>
+
 <body>
 
-<div id="loader">
-    <div class="loader-content">
-        <h1>For Vrinda ❤️</h1>
-        <p>A little surprise made with love.</p>
+    <!-- ================= LOADER ================= -->
+
+    <div id="loader">
+
+        <div class="loader-content">
+
+            <h1>For Vrinda ❤️</h1>
+
+            <p>
+                A little surprise made with love.
+            </p>
+
+        </div>
+
     </div>
-</div>
 
-<div class="background">
-    <div class="stars"></div>
-</div>
+    <!-- ================= BACKGROUND ================= -->
 
-<header class="hero">
+    <div class="background">
 
-    <h1>Happy Girlfriend Day ❤️</h1>
+        <div class="stars"></div>
 
-    <h2>Vrinda</h2>
+    </div>
 
-    <p>
-        Every moment with you is my favorite story.
-    </p>
+    <!-- ================= HERO ================= -->
 
-    <button id="startBtn">
-        Tap here cutie ❤️
-    </button>
+    <header class="hero">
 
-</header>
+        <h1>
+            Happy Girlfriend Day ❤️
+        </h1>
 
-<section class="glass-card">
+        <h2>
+            Vrinda
+        </h2>
 
-<h2>💌 A Letter For My Love</h2>
+        <p>
+            Every moment with you is my favorite story.
+        </p>
 
-<p>
+        <button id="startBtn">
+            Begin ❤️
+        </button>
+
+    </header>
+
+    <!-- ================= LETTER ================= -->
+
+    <section class="glass-card">
+
+        <h2>
+            💌 A Letter For My Queen
+        </h2>
+
+        <p>
+            Every love story deserves a letter.
+        </p>
+
+        <button id="openLetter">
+            Open My Letter ❤️
+        </button>
+
+    </section>
+
+    <!-- LETTER POPUP -->
+
+    <div id="letterPopup">
+
+        <div class="popup-card">
+
+            <h2>
+                💌 To My Queen
+            </h2>
+
+            <div class="letter-content">
+
+                <p>
+
 Dear Vrinda, ❤️<br><br>
 
 Happy Girlfriend Day, my Queen.<br><br>
@@ -87,174 +146,216 @@ Happy Girlfriend Day, my Queen. ❤️<br><br>
 Forever Yours,<br><br>
 
 <strong>Your Soldier,</strong><br>
+
 <strong>Abul ❤️</strong>
 
-</p>
+                </p>
 
-</section>
+            </div>
 
-<section class="glass-card counter-section">
+            <button id="closeLetter">
+                Close Me ❤️
+            </button>
 
-<h2>Together For ❤️</h2>
+        </div>
 
-<div id="dayCounter">
+    </div>
 
-0 Days
+    <!-- ================= DAY COUNTER ================= -->
 
-</div>
+    <section class="glass-card counter-section">
 
-</section>
+        <h2>
+            ❤️ Together For
+        </h2>
 
-<section class="glass-card">
+        <div id="dayCounter">
+            0 Days
+        </div>
 
-<h2>✨ Reasons I Love You</h2>
+    </section>
+        <!-- ================= REASONS ================= -->
 
-<div class="reason-card">
+    <section class="glass-card">
 
-<h3>Reason One</h3>
+        <h2>✨ Reasons I Love You</h2>
 
-<p>
+        <div class="reason-card">
 
-<!-- Write here -->
+            <h3>❤️ Reason One</h3>
 
-Your Message
+            <p>
+                <!-- Write your own reason here -->
+                Replace this with your own words.
+            </p>
 
-</p>
+        </div>
 
-</div>
+        <div class="reason-card">
 
-<div class="reason-card">
+            <h3>🌸 Reason Two</h3>
 
-<h3>Reason Two</h3>
+            <p>
+                <!-- Write your own reason here -->
+                Replace this with your own words.
+            </p>
 
-<p>
+        </div>
 
-<!-- Write here -->
+        <div class="reason-card">
 
-Your Message
+            <h3>💖 Reason Three</h3>
 
-</p>
+            <p>
+                <!-- Write your own reason here -->
+                Replace this with your own words.
+            </p>
 
-</div>
+        </div>
 
-<div class="reason-card">
+    </section>
 
-<h3>Reason Three</h3>
 
-<p>
+    <!-- ================= MUSIC ================= -->
 
-<!-- Write here -->
+    <section class="glass-card">
 
-Your Message
+        <h2>🎵 Our Song</h2>
 
-</p>
+        <p>
+            Every beautiful memory deserves a beautiful song.
+        </p>
 
-</div>
+        <button id="musicBtn">
+            ▶ Play Our Song
+        </button>
 
-</section>
+        <audio id="music">
+            <!--
+            Add your song here later.
 
-<section class="glass-card">
+            Example:
 
-<h2>🎵 Our Song</h2>
+            <source src="assets/music/oursong.mp3" type="audio/mpeg">
 
-<p>
+            -->
+        </audio>
 
-You can add your favorite song later.
+    </section>
 
-</p>
 
-<button id="musicBtn">
+    <!-- ================= FUTURE ================= -->
 
-Play Music
+    <section class="glass-card">
 
-</button>
+        <h2>🌙 Our Future</h2>
 
-<audio id="music">
+        <p>
 
-<!--
-Add your music file later.
+            One day...
 
-Example:
+            We won't need a phone screen to see each other.
 
-<source src="assets/music/song.mp3">
+            We'll watch sunsets together.
 
--->
+            We'll laugh together.
 
-</audio>
+            We'll create memories together.
 
-</section>
+            And I'll finally be able to tell you,
 
-<section class="glass-card">
+            "You're even more beautiful in person."
 
-<h2>🌸 Future Memories</h2>
+        </p>
 
-<p>
+    </section>
 
-One day...
 
-We'll fill this place with beautiful memories together.
+    <!-- ================= SURPRISE ================= -->
 
-</p>
+    <section class="glass-card surprise">
 
-</section>
+        <h2>🎁 One Last Thing...</h2>
 
-<section class="glass-card surprise">
+        <p>
 
-<h2>🎁 One Last Thing...</h2>
+            I have one more surprise for you.
 
-<button id="surpriseBtn">
+        </p>
 
-Tap Me ❤️
+        <button id="surpriseBtn">
 
-</button>
+            Tap Me ❤️
 
-</section>
+        </button>
 
-<div id="popup">
+    </section>
 
-<div class="popup-card">
 
-<h2>I Love You ❤️</h2>
+    <!-- ================= SURPRISE POPUP ================= -->
 
-<p>
+    <div id="popup">
 
-<!--
+        <div class="popup-card">
 
-Write your final message here.
+            <h2>
 
--->
+                ❤️ I Love You ❤️
 
-Forever & Always.
+            </h2>
 
-</p>
+            <p>
 
-<button id="closePopup">
+                Thank you for being the most beautiful part of my life.
 
-Close
+                <br><br>
 
-</button>
+                I hope this little website made you smile.
 
-</div>
+                <br><br>
 
-</div>
+                Happy Girlfriend Day, My Queen. ❤️
 
-<footer>
+            </p>
 
-<h2>
+            <button id="closePopup">
 
-Happy Girlfriend Day ❤️
+                Close Me ❤️
 
-</h2>
+            </button>
 
-<p>
+        </div>
 
-Made with ❤️ by Abul
+    </div>
 
-</p>
 
-</footer>
+    <!-- ================= FOOTER ================= -->
 
-<script src="script.js"></script>
+    <footer>
+
+        <h2>
+
+            Happy Girlfriend Day ❤️
+
+        </h2>
+
+        <p>
+
+            Made with ❤️ by Abul
+
+        </p>
+
+        <small>
+
+            "Not every queen needs a king. Sometimes, she just needs a soldier who will never leave her side."
+
+        </small>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
