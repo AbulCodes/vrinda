@@ -2,15 +2,15 @@
 // LOADER
 // ==========================================
 
-window.addEventListener("load", () => {
+window.addEventListener("load",()=>{
 
-    setTimeout(() => {
+setTimeout(()=>{
 
-        document
-            .getElementById("loader")
-            .classList.add("hide");
+document
+.getElementById("loader")
+.classList.add("hide");
 
-    },1800);
+},1800);
 
 });
 
@@ -18,33 +18,33 @@ window.addEventListener("load", () => {
 // PASSWORD
 // ==========================================
 
-const PASSWORD = "Foreverus";
+const PASSWORD="Foreverus";
 
-const welcomeScreen =
+const welcomeScreen=
 document.getElementById("welcomeScreen");
 
-const passwordScreen =
+const passwordScreen=
 document.getElementById("passwordScreen");
 
-const openingScreen =
+const openingScreen=
 document.getElementById("openingScreen");
 
-const website =
+const website=
 document.getElementById("websiteContent");
 
-const continueBtn =
+const continueBtn=
 document.getElementById("continueBtn");
 
-const unlockBtn =
+const unlockBtn=
 document.getElementById("unlockBtn");
 
-const passwordInput =
+const passwordInput=
 document.getElementById("passwordInput");
 
-const wrongPassword =
+const wrongPassword=
 document.getElementById("wrongPassword");
 
-const unlockText =
+const unlockText=
 document.getElementById("unlockText");
 
 continueBtn.addEventListener("click",()=>{
@@ -58,6 +58,8 @@ passwordScreen.style.display="flex";
 unlockBtn.addEventListener("click",()=>{
 
 if(passwordInput.value===PASSWORD){
+
+wrongPassword.textContent="";
 
 passwordScreen.style.display="none";
 
@@ -75,7 +77,9 @@ website.style.display="block";
 
 else{
 
-wrongPassword.innerHTML="Wrong Password ❤️";
+wrongPassword.textContent="Wrong Password ❤️";
+
+passwordInput.value="";
 
 }
 
@@ -92,28 +96,54 @@ unlockBtn.click();
 });
 
 // ==========================================
+// DAY COUNTER
+// ==========================================
+
+const proposalDate=new Date(2026,5,22);
+
+proposalDate.setHours(0,0,0,0);
+
+function updateCounter(){
+
+const today=new Date();
+
+today.setHours(0,0,0,0);
+
+const diff=today-proposalDate;
+
+const days=Math.floor(
+diff/(1000*60*60*24)
+);
+
+document
+.getElementById("dayCounter")
+.textContent=`${days} Days`;
+
+}
+
+updateCounter();
+
+// ==========================================
 // MUSIC
 // ==========================================
 
-const music =
+const music=
 document.getElementById("music");
 
-const miniPlayer =
+const miniPlayer=
 document.getElementById("miniPlayer");
 
-const albumArt =
+const albumArt=
 document.getElementById("albumArt");
 
-const miniPlay =
+const miniPlay=
 document.getElementById("miniPlay");
-
-let playing=false;
 
 // ==========================================
 // HERO BUTTON
 // ==========================================
 
-const floatingCounter =
+const floatingCounter=
 document.getElementById("floatingCounter");
 
 document
@@ -130,25 +160,17 @@ behavior:"smooth"
 
 });
 
-// try autoplay
+music.play().catch(()=>{
 
-music.play().then(()=>{
-
-playing=true;
-
-}).catch(()=>{
-
-console.log("Autoplay blocked");
+console.log("Autoplay blocked.");
 
 });
-
-// mini player after 20 sec
 
 setTimeout(()=>{
 
 miniPlayer.classList.add("show");
 
-},20000);
+},10000);
 
 });
 
@@ -166,8 +188,6 @@ miniPlay.innerHTML="⏸";
 
 albumArt.classList.remove("pause");
 
-playing=true;
-
 }
 
 else{
@@ -178,38 +198,9 @@ miniPlay.innerHTML="▶";
 
 albumArt.classList.add("pause");
 
-playing=false;
-
 }
 
 });
-
-// ==========================================
-// DAY COUNTER
-// ==========================================
-
-const proposalDate =
-new Date("2026-06-22T00:00:00");
-
-function updateCounter(){
-
-const today=new Date();
-
-const diff=today-proposalDate;
-
-const days=Math.floor(
-
-diff/(1000*60*60*24)
-
-);
-
-document
-.getElementById("dayCounter")
-.innerHTML=days+" Days";
-
-}
-
-updateCounter();
 // ==========================================
 // LETTER POPUP
 // ==========================================
@@ -217,17 +208,19 @@ updateCounter();
 const letterPopup =
 document.getElementById("letterPopup");
 
-document
-.getElementById("openLetter")
-.addEventListener("click",()=>{
+const openLetter =
+document.getElementById("openLetter");
+
+const closeLetter =
+document.getElementById("closeLetter");
+
+openLetter.addEventListener("click",()=>{
 
 letterPopup.classList.add("show");
 
 });
 
-document
-.getElementById("closeLetter")
-.addEventListener("click",()=>{
+closeLetter.addEventListener("click",()=>{
 
 letterPopup.classList.remove("show");
 
@@ -247,20 +240,22 @@ letterPopup.classList.remove("show");
 // SURPRISE POPUP
 // ==========================================
 
-const popup =
+const popup=
 document.getElementById("popup");
 
-document
-.getElementById("surpriseBtn")
-.addEventListener("click",()=>{
+const surpriseBtn=
+document.getElementById("surpriseBtn");
+
+const closePopup=
+document.getElementById("closePopup");
+
+surpriseBtn.addEventListener("click",()=>{
 
 popup.classList.add("show");
 
 });
 
-document
-.getElementById("closePopup")
-.addEventListener("click",()=>{
+closePopup.addEventListener("click",()=>{
 
 popup.classList.remove("show");
 
@@ -295,7 +290,7 @@ heart.style.fontSize=
 (16+Math.random()*18)+"px";
 
 heart.style.animationDuration=
-(6+Math.random()*3)+"s";
+(6+Math.random()*4)+"s";
 
 document.body.appendChild(heart);
 
@@ -303,17 +298,17 @@ setTimeout(()=>{
 
 heart.remove();
 
-},9000);
+},10000);
 
 }
 
 setInterval(createHeart,1800);
 
 // ==========================================
-// SHOOTING STAR
+// SHOOTING STARS
 // ==========================================
 
-function shootingStar(){
+function createStar(){
 
 const star=document.createElement("div");
 
@@ -335,7 +330,7 @@ star.remove();
 
 }
 
-setInterval(shootingStar,7000);
+setInterval(createStar,7000);
 
 // ==========================================
 // SCROLL REVEAL
@@ -351,7 +346,7 @@ card.classList.add("fade");
 });
 
 const observer=
-new IntersectionObserver(entries=>{
+new IntersectionObserver((entries)=>{
 
 entries.forEach(entry=>{
 
@@ -364,7 +359,9 @@ entry.target.classList.add("show");
 });
 
 },{
-threshold:.15
+
+threshold:0.15
+
 });
 
 cards.forEach(card=>{
@@ -391,7 +388,7 @@ dots=0;
 
 }
 
-unlockText.innerHTML=
+unlockText.textContent=
 
 "Unlocking your surprise"+
 
@@ -404,9 +401,7 @@ unlockText.innerHTML=
 // RIPPLE EFFECT
 // ==========================================
 
-document
-.querySelectorAll("button")
-.forEach(button=>{
+document.querySelectorAll("button").forEach(button=>{
 
 button.addEventListener("click",function(e){
 
@@ -421,10 +416,10 @@ ripple.style.width=size+"px";
 ripple.style.height=size+"px";
 
 ripple.style.left=
-e.offsetX-size/2+"px";
+(e.offsetX-size/2)+"px";
 
 ripple.style.top=
-e.offsetY-size/2+"px";
+(e.offsetY-size/2)+"px";
 
 ripple.style.position="absolute";
 
@@ -451,7 +446,7 @@ ripple.remove();
 });
 
 // ==========================================
-// RIPPLE CSS (AUTO)
+// RIPPLE STYLE
 // ==========================================
 
 const rippleStyle=document.createElement("style");
@@ -488,8 +483,6 @@ document.head.appendChild(rippleStyle);
 
 music.addEventListener("play",()=>{
 
-playing=true;
-
 miniPlay.innerHTML="⏸";
 
 albumArt.classList.remove("pause");
@@ -497,8 +490,6 @@ albumArt.classList.remove("pause");
 });
 
 music.addEventListener("pause",()=>{
-
-playing=false;
 
 miniPlay.innerHTML="▶";
 
@@ -508,8 +499,6 @@ albumArt.classList.add("pause");
 
 music.addEventListener("ended",()=>{
 
-playing=false;
-
 miniPlay.innerHTML="▶";
 
 albumArt.classList.add("pause");
@@ -517,7 +506,7 @@ albumArt.classList.add("pause");
 });
 
 // ==========================================
-// ESC KEY CLOSES POPUPS
+// ESC CLOSES POPUPS
 // ==========================================
 
 document.addEventListener("keydown",(e)=>{
@@ -533,7 +522,7 @@ letterPopup.classList.remove("show");
 });
 
 // ==========================================
-// ALWAYS START FROM TOP
+// RESET SCROLL
 // ==========================================
 
 window.onbeforeunload=()=>{
@@ -543,7 +532,7 @@ window.scrollTo(0,0);
 };
 
 // ==========================================
-// MOBILE PINCH ZOOM FIX
+// MOBILE GESTURE FIX
 // ==========================================
 
 document.addEventListener(
@@ -559,10 +548,17 @@ e.preventDefault();
 );
 
 // ==========================================
-// PRELOAD MUSIC
+// PRELOAD AUDIO
 // ==========================================
 
 music.preload="auto";
+
+// ==========================================
+// AUTO UPDATE DAY COUNTER
+// (refresh every hour)
+// ==========================================
+
+setInterval(updateCounter,3600000);
 
 // ==========================================
 // CONSOLE MESSAGE ❤️
@@ -578,8 +574,8 @@ console.log(
 
 console.log(
 
-"%cIf you're reading this... she's my Queen 👑",
+"%cForever Us ❤️",
 
-"color:#ffffff;font-size:15px;"
+"color:white;font-size:15px;"
 
 );

@@ -1,364 +1,165 @@
- /* ========================= */
-/* RESET */
-/* ========================= */
+/* ==========================================
+   RESET
+========================================== */
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 html{
-    scroll-behavior:smooth;
+overflow-x:hidden;
 }
 
 body{
 
-    font-family:'Poppins',sans-serif;
-
-    background:#06070f;
-
-    color:#fff;
-
-    overflow-x:hidden;
+font-family:"Poppins",sans-serif;
+background:#050816;
+color:#fff;
+overflow-x:hidden;
+min-height:100vh;
 
 }
 
-/* ========================= */
-/* BACKGROUND */
-/* ========================= */
+/* ==========================================
+   WEBSITE
+========================================== */
 
-.background{
+#websiteContent{
 
-    position:fixed;
-
-    inset:0;
-
-    z-index:-3;
-
-    background:
-    radial-gradient(circle at top,#47215c,#090b15 60%);
-
-    overflow:hidden;
+display:none;
+animation:fadeIn 1s ease;
 
 }
 
-.stars{
+@keyframes fadeIn{
 
-    position:absolute;
+from{
 
-    width:100%;
-    height:100%;
-
-    background-image:
-
-    radial-gradient(white 1px,transparent 1px);
-
-    background-size:55px 55px;
-
-    opacity:.15;
+opacity:0;
 
 }
 
-/* ========================= */
-/* LOADER */
-/* ========================= */
+to{
+
+opacity:1;
+
+}
+
+}
+
+/* ==========================================
+   LOADER
+========================================== */
 
 #loader{
 
-    position:fixed;
+position:fixed;
+inset:0;
 
-    inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
 
-    background:#05060c;
+background:#050816;
 
-    display:flex;
+z-index:99999;
 
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:999999;
-
-    transition:.8s;
+transition:.8s;
 
 }
 
 #loader.hide{
 
-    opacity:0;
-
-    visibility:hidden;
+opacity:0;
+visibility:hidden;
 
 }
 
 .loader-content{
 
-    text-align:center;
+text-align:center;
 
 }
 
 .loader-content h1{
 
-    font-size:42px;
-
-    margin-bottom:15px;
+font-size:2.7rem;
+margin-bottom:15px;
 
 }
 
 .loader-content p{
 
-    opacity:.75;
+opacity:.8;
 
 }
 
-/* ========================= */
-/* INTRO SCREENS */
-/* ========================= */
+/* ==========================================
+   INTRO SCREENS
+========================================== */
 
 #welcomeScreen,
 #passwordScreen,
 #openingScreen{
 
-    position:fixed;
+position:fixed;
 
-    inset:0;
+inset:0;
 
-    display:flex;
+display:flex;
 
-    justify-content:center;
+justify-content:center;
 
-    align-items:center;
+align-items:center;
 
-    padding:25px;
+background:#050816;
 
-    background:#05060c;
+z-index:9998;
 
-    z-index:999998;
-
-}
-
-#passwordScreen{
-
-    display:none;
+padding:25px;
 
 }
 
+#passwordScreen,
 #openingScreen{
 
-    display:none;
+display:none;
 
 }
-
-#websiteContent{
-
-    display:none;
-
-}
-
-/* ========================= */
-/* INTRO CARD */
-/* ========================= */
 
 .password-card{
 
-    width:100%;
+width:100%;
+max-width:420px;
 
-    max-width:360px;
+padding:40px;
 
-    padding:35px;
+background:rgba(255,255,255,.08);
 
-    text-align:center;
+backdrop-filter:blur(20px);
 
-    border-radius:28px;
+border:1px solid rgba(255,255,255,.15);
 
-    background:rgba(255,255,255,.08);
+border-radius:28px;
 
-    backdrop-filter:blur(20px);
+text-align:center;
 
-    border:1px solid rgba(255,255,255,.12);
-
-    animation:pop .7s ease;
-
-}
-
-.password-card h2{
-
-    margin:15px 0;
-
-    font-size:28px;
+box-shadow:0 20px 60px rgba(0,0,0,.4);
 
 }
-
-.password-card p{
-
-    opacity:.8;
-
-    line-height:1.7;
-
-}
-
-/* ========================= */
-/* ICON */
-/* ========================= */
 
 .intro-icon{
 
-    font-size:70px;
+font-size:60px;
 
-    animation:float 3s infinite ease-in-out;
+margin-bottom:18px;
 
-}
-
-/* ========================= */
-/* INPUT */
-/* ========================= */
-
-.password-card input{
-
-    width:100%;
-
-    margin:25px 0;
-
-    padding:15px;
-
-    border:none;
-
-    outline:none;
-
-    border-radius:15px;
-
-    background:rgba(255,255,255,.08);
-
-    color:white;
-
-    text-align:center;
-
-    font-size:16px;
+animation:float 3s ease-in-out infinite;
 
 }
-
-.password-card input::placeholder{
-
-    color:#ddd;
-
-}
-
-/* ========================= */
-/* BUTTON */
-/* ========================= */
-
-button{
-
-    padding:15px 28px;
-
-    border:none;
-
-    border-radius:40px;
-
-    cursor:pointer;
-
-    font-size:16px;
-
-    font-weight:600;
-
-    color:white;
-
-    background:
-
-    linear-gradient(135deg,#ff5fa2,#ff8d8d);
-
-    transition:.35s;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-button:hover{
-
-    transform:translateY(-3px);
-
-    box-shadow:
-
-    0 15px 35px rgba(255,80,150,.35);
-
-}
-
-button:active{
-
-    transform:scale(.97);
-
-}
-
-/* ========================= */
-/* WRONG PASSWORD */
-/* ========================= */
-
-#wrongPassword{
-
-    color:#ff8ca9;
-
-    margin-top:15px;
-
-}
-
-/* ========================= */
-/* HERO */
-/* ========================= */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:25px;
-
-}
-
-.hero h1{
-
-    font-size:44px;
-
-    line-height:1.2;
-
-}
-
-.hero h2{
-
-    margin-top:20px;
-
-    font-size:32px;
-
-    color:#ff8cb6;
-
-}
-
-.hero p{
-
-    margin:20px 0 35px;
-
-    max-width:420px;
-
-    opacity:.82;
-
-    line-height:1.7;
-
-}
-
-/* ========================= */
-/* ANIMATIONS */
-/* ========================= */
 
 @keyframes float{
 
@@ -376,387 +177,803 @@ transform:translateY(-10px);
 
 }
 
-@keyframes pop{
+.password-card h2{
+
+margin-bottom:12px;
+
+font-size:2rem;
+
+}
+
+.password-card p{
+
+opacity:.8;
+
+line-height:1.6;
+
+margin-bottom:25px;
+
+}
+
+#passwordInput{
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+outline:none;
+
+border-radius:14px;
+
+font-size:16px;
+
+margin-bottom:20px;
+
+background:rgba(255,255,255,.12);
+
+color:white;
+
+}
+
+#passwordInput::placeholder{
+
+color:#ddd;
+
+}
+
+#wrongPassword{
+
+margin-top:15px;
+
+color:#ff8fb7;
+
+font-weight:600;
+
+}
+
+/* ==========================================
+   BUTTONS
+========================================== */
+
+button{
+
+padding:15px 28px;
+
+border:none;
+
+border-radius:999px;
+
+background:linear-gradient(135deg,#ff5ca8,#ff2d75);
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:0 10px 25px rgba(255,92,168,.35);
+
+}
+
+button:hover{
+
+transform:translateY(-3px) scale(1.03);
+
+box-shadow:0 15px 35px rgba(255,92,168,.45);
+
+}
+
+button:active{
+
+transform:scale(.97);
+
+}
+
+/* ==========================================
+   BACKGROUND
+========================================== */
+
+.background{
+
+position:fixed;
+
+inset:0;
+
+z-index:-2;
+
+background:
+
+radial-gradient(circle at top,#162042,#050816 70%);
+
+overflow:hidden;
+
+}
+
+/* ==========================================
+   STARS
+========================================== */
+
+.stars{
+
+position:absolute;
+
+inset:0;
+
+background-image:
+
+radial-gradient(white 1px,transparent 1px);
+
+background-size:40px 40px;
+
+opacity:.25;
+
+animation:starsMove 120s linear infinite;
+
+}
+
+@keyframes starsMove{
 
 from{
 
-opacity:0;
-
-transform:scale(.8);
+transform:translateY(0);
 
 }
 
 to{
 
-opacity:1;
-
-transform:scale(1);
+transform:translateY(-800px);
 
 }
 
 }
-/* ========================= */
-/* GLASS CARD */
-/* ========================= */
 
-.glass-card{
+/* ==========================================
+   HERO
+========================================== */
 
-    width:min(92%,500px);
+.hero{
 
-    margin:30px auto;
+min-height:100vh;
 
-    padding:28px;
+display:flex;
 
-    border-radius:28px;
+flex-direction:column;
 
-    text-align:center;
+justify-content:center;
 
-    background:rgba(255,255,255,.08);
+align-items:center;
 
-    backdrop-filter:blur(18px);
+text-align:center;
 
-    border:1px solid rgba(255,255,255,.1);
-
-    box-shadow:
-
-    0 15px 40px rgba(0,0,0,.25);
-
-    transition:.45s;
+padding:40px 20px;
 
 }
 
-.glass-card:hover{
+.hero h1{
 
-    transform:translateY(-6px);
+font-size:3.3rem;
 
-}
-
-.glass-card h2{
-
-    margin-bottom:18px;
-
-    font-size:30px;
+margin-bottom:12px;
 
 }
 
-.glass-card p{
+.hero h2{
 
-    opacity:.85;
+font-size:2rem;
 
-    line-height:1.8;
+color:#ff86bf;
+
+margin-bottom:15px;
 
 }
 
-/* ========================= */
-/* FLOATING COUNTER */
-/* ========================= */
+.hero p{
+
+max-width:650px;
+
+line-height:1.8;
+
+opacity:.9;
+
+margin-bottom:35px;
+
+font-size:18px;
+
+}
+
+/* ==========================================
+   FLOATING COUNTER
+========================================== */
 
 #floatingCounter{
 
-    position:fixed;
+position:fixed;
 
-    top:18px;
+top:25px;
 
-    right:18px;
+right:-250px;
 
-    z-index:999;
+display:flex;
 
-    display:none;
+align-items:center;
 
-    flex-direction:column;
+gap:12px;
 
-    align-items:center;
+padding:14px 22px;
 
-    gap:6px;
+background:rgba(255,255,255,.1);
 
-    padding:14px 18px;
+backdrop-filter:blur(20px);
 
-    border-radius:18px;
+border-radius:20px;
 
-    background:rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.15);
 
-    backdrop-filter:blur(16px);
+transition:.8s;
 
-    border:1px solid rgba(255,255,255,.1);
-
-    animation:pop .5s;
+z-index:999;
 
 }
 
 #floatingCounter.show{
 
-    display:flex;
+right:20px;
 
 }
 
 .counter-title{
 
-    font-size:13px;
+font-weight:700;
 
-    opacity:.8;
+color:#ff85bc;
 
 }
 
 #dayCounter{
 
-    font-size:24px;
-
-    font-weight:700;
-
-    color:#ff8db7;
+font-weight:600;
 
 }
 
-/* ========================= */
-/* REASON CARDS */
-/* ========================= */
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.3rem;
+
+}
+
+.hero h2{
+
+font-size:1.5rem;
+
+}
+
+.hero p{
+
+font-size:15px;
+
+}
+
+.password-card{
+
+padding:30px 22px;
+
+}
+
+#floatingCounter{
+
+transform:scale(.9);
+
+top:15px;
+
+right:-260px;
+
+}
+
+}
+/* ==========================================
+   GLASS CARDS
+========================================== */
+
+.glass-card{
+
+width:min(900px,90%);
+
+margin:60px auto;
+
+padding:40px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:28px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+
+text-align:center;
+
+transition:.5s;
+
+}
+
+.glass-card h2{
+
+font-size:2rem;
+
+margin-bottom:18px;
+
+color:#ff86bf;
+
+}
+
+.glass-card p{
+
+line-height:1.9;
+
+opacity:.92;
+
+font-size:16px;
+
+}
+
+/* ==========================================
+   REASON CARDS
+========================================== */
 
 .reason-card{
 
-    margin-top:22px;
+margin-top:25px;
 
-    padding:20px;
+padding:25px;
 
-    border-radius:20px;
+border-radius:20px;
 
-    background:rgba(255,255,255,.05);
+background:rgba(255,255,255,.05);
 
-    transition:.35s;
+border:1px solid rgba(255,255,255,.08);
+
+transition:.35s;
 
 }
 
 .reason-card:hover{
 
-    transform:translateY(-4px);
+transform:translateY(-8px);
 
-    background:rgba(255,255,255,.08);
+background:rgba(255,255,255,.1);
 
 }
 
 .reason-card h3{
 
-    margin-bottom:12px;
+margin-bottom:12px;
 
-    font-size:22px;
+font-size:1.35rem;
+
+color:#ffb0d4;
 
 }
 
 .reason-card p{
 
-    font-size:15px;
-
-    line-height:1.8;
+line-height:1.8;
 
 }
 
-/* ========================= */
-/* LETTER POPUP */
-/* ========================= */
+/* ==========================================
+   LETTER POPUP
+========================================== */
 
 #letterPopup{
 
-    position:fixed;
+position:fixed;
 
-    inset:0;
+inset:0;
 
-    display:none;
+background:rgba(0,0,0,.72);
 
-    justify-content:center;
+display:flex;
 
-    align-items:center;
+justify-content:center;
 
-    padding:20px;
+align-items:center;
 
-    background:rgba(0,0,0,.65);
+opacity:0;
 
-    backdrop-filter:blur(12px);
+visibility:hidden;
 
-    z-index:9999;
+transition:.35s;
+
+padding:20px;
+
+z-index:9999;
 
 }
 
 #letterPopup.show{
 
-    display:flex;
+opacity:1;
+
+visibility:visible;
 
 }
 
 .popup-card{
 
-    width:min(95%,600px);
+width:min(720px,95%);
 
-    max-height:90vh;
+max-height:88vh;
 
-    overflow:auto;
+overflow-y:auto;
 
-    padding:30px;
+padding:35px;
 
-    border-radius:25px;
+background:#11172b;
 
-    background:#121420;
+border-radius:28px;
 
-    border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+animation:popup .4s ease;
+
+}
+
+@keyframes popup{
+
+from{
+
+transform:scale(.85);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
 
 }
 
 .popup-card h2{
 
-    text-align:center;
+margin-bottom:20px;
 
-    margin-bottom:20px;
+color:#ff8fc2;
+
+text-align:center;
 
 }
 
+/* ==========================================
+   LETTER CONTENT
+========================================== */
+
 .letter-content{
 
-    line-height:1.9;
+max-height:55vh;
 
-    font-size:15px;
+overflow-y:auto;
 
-    text-align:left;
+padding-right:10px;
+
+text-align:left;
+
+line-height:2;
+
+font-size:16px;
 
 }
 
 .letter-content strong{
 
-    color:#ff8db7;
+color:#ff95c6;
 
 }
 
-.popup-card button{
+.letter-content::-webkit-scrollbar{
 
-    width:100%;
-
-    margin-top:25px;
+width:8px;
 
 }
 
-/* ========================= */
-/* MUSIC */
-/* ========================= */
+.letter-content::-webkit-scrollbar-thumb{
 
-#musicBtn{
+background:#ff5ca8;
 
-    margin-top:18px;
-
-    width:100%;
+border-radius:20px;
 
 }
 
-/* ========================= */
-/* FUTURE */
-/* ========================= */
-
-.glass-card strong{
-
-    color:#ff8db7;
-
-}
-
-/* ========================= */
-/* FADE ANIMATION */
-/* ========================= */
-
-.fade{
-
-    opacity:0;
-
-    transform:translateY(60px);
-
-    transition:1s;
-
-}
-
-.fade.show{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-/* ========================= */
-/* SURPRISE POPUP */
-/* ========================= */
+/* ==========================================
+   SURPRISE POPUP
+========================================== */
 
 #popup{
 
-    position:fixed;
+position:fixed;
 
-    inset:0;
+inset:0;
 
-    display:none;
+background:rgba(0,0,0,.72);
 
-    justify-content:center;
+display:flex;
 
-    align-items:center;
+justify-content:center;
 
-    padding:20px;
+align-items:center;
 
-    background:rgba(0,0,0,.65);
+opacity:0;
 
-    backdrop-filter:blur(12px);
+visibility:hidden;
 
-    z-index:9999;
+transition:.35s;
+
+padding:20px;
+
+z-index:9999;
 
 }
 
 #popup.show{
 
-    display:flex;
+opacity:1;
+
+visibility:visible;
 
 }
 
-/* ========================= */
-/* FOOTER */
-/* ========================= */
+#popup .popup-card{
 
-footer{
-
-    text-align:center;
-
-    padding:60px 25px 40px;
+text-align:center;
 
 }
 
-footer h2{
+#popup p{
 
-    font-size:30px;
-
-    margin-bottom:18px;
+line-height:2;
 
 }
 
-footer p{
+/* ==========================================
+   SCROLL ANIMATION
+========================================== */
 
-    opacity:.8;
+.fade{
 
-    margin-bottom:15px;
+opacity:0;
 
-}
+transform:translateY(50px);
 
-footer small{
-
-    opacity:.65;
-
-    line-height:1.8;
+transition:1s;
 
 }
 
-/* ========================= */
-/* HEARTS */
-/* ========================= */
+.fade.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* ==========================================
+   HOVER EFFECT
+========================================== */
+
+.glass-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 30px 60px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+.glass-card{
+
+padding:25px;
+
+margin:40px auto;
+
+}
+
+.glass-card h2{
+
+font-size:1.6rem;
+
+}
+
+.popup-card{
+
+padding:25px;
+
+}
+
+.letter-content{
+
+font-size:15px;
+
+line-height:1.8;
+
+}
+
+.reason-card{
+
+padding:18px;
+
+}
+
+}
+/* ==========================================
+   MINI PLAYER
+========================================== */
+
+#miniPlayer{
+
+position:fixed;
+
+right:-380px;
+
+bottom:25px;
+
+width:330px;
+
+padding:14px 18px;
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.15);
+
+border-radius:22px;
+
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+transition:1s;
+
+z-index:9999;
+
+}
+
+#miniPlayer.show{
+
+right:20px;
+
+}
+
+#albumArt{
+
+width:60px;
+
+height:60px;
+
+border-radius:50%;
+
+object-fit:cover;
+
+animation:spin 8s linear infinite;
+
+box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+}
+
+#albumArt.pause{
+
+animation-play-state:paused;
+
+}
+
+.musicInfo{
+
+flex:1;
+
+}
+
+.musicInfo h4{
+
+font-size:16px;
+
+margin-bottom:3px;
+
+color:#fff;
+
+}
+
+.musicInfo p{
+
+font-size:13px;
+
+opacity:.75;
+
+}
+
+#miniPlay{
+
+width:45px;
+
+height:45px;
+
+padding:0;
+
+border-radius:50%;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:18px;
+
+}
+
+@keyframes spin{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================================
+   FLOATING HEARTS
+========================================== */
 
 .heart{
 
-    position:fixed;
+position:fixed;
 
-    bottom:-40px;
+bottom:-40px;
 
-    pointer-events:none;
+pointer-events:none;
 
-    z-index:999;
+z-index:5;
 
-    animation:heartFloat linear forwards;
+animation:heartFloat linear forwards;
 
 }
 
@@ -778,7 +995,7 @@ opacity:1;
 
 100%{
 
-transform:translateY(-110vh) scale(1.4);
+transform:translateY(-110vh) scale(1.3);
 
 opacity:0;
 
@@ -786,77 +1003,43 @@ opacity:0;
 
 }
 
-/* ========================= */
-/* SHOOTING STAR */
-/* ========================= */
+/* ==========================================
+   SHOOTING STAR
+========================================== */
 
 .shooting-star{
 
-    position:fixed;
+position:fixed;
 
-    width:160px;
+width:140px;
 
-    height:2px;
+height:2px;
 
-    background:linear-gradient(90deg,#fff,transparent);
+background:linear-gradient(to right,#fff,transparent);
 
-    transform:rotate(-25deg);
+transform:rotate(-35deg);
 
-    pointer-events:none;
+animation:shoot 1.4s linear forwards;
 
-    z-index:5;
+pointer-events:none;
 
-    animation:shoot 1.5s linear forwards;
+z-index:4;
 
 }
 
 @keyframes shoot{
 
-0%{
+from{
 
-opacity:0;
-
-transform:
-translate(0,0)
-rotate(-25deg);
-
-}
-
-15%{
+transform:translateX(0) translateY(0) rotate(-35deg);
 
 opacity:1;
 
 }
 
-100%{
-
-opacity:0;
-
-transform:
-translate(-350px,350px)
-rotate(-25deg);
-
-}
-
-}
-
-/* ========================= */
-/* BUTTON RIPPLE */
-/* ========================= */
-
-button{
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-@keyframes ripple{
-
 to{
 
-transform:scale(4);
+transform:translateX(450px) translateY(250px) rotate(-35deg);
 
 opacity:0;
 
@@ -864,316 +1047,151 @@ opacity:0;
 
 }
 
-/* ========================= */
-/* SCROLLBAR */
-/* ========================= */
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer{
+
+padding:70px 20px 50px;
+
+text-align:center;
+
+}
+
+footer h2{
+
+font-size:2rem;
+
+margin-bottom:15px;
+
+color:#ff8bc0;
+
+}
+
+footer p{
+
+opacity:.9;
+
+margin-bottom:15px;
+
+}
+
+footer small{
+
+display:block;
+
+max-width:650px;
+
+margin:auto;
+
+line-height:1.8;
+
+opacity:.65;
+
+font-style:italic;
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
 
 ::-webkit-scrollbar{
 
-    width:8px;
+width:10px;
 
 }
 
 ::-webkit-scrollbar-track{
 
-    background:#0a0b13;
+background:#08101f;
 
 }
 
 ::-webkit-scrollbar-thumb{
 
-    background:#ff77aa;
+background:#ff5ca8;
 
-    border-radius:20px;
+border-radius:50px;
 
 }
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#ff4f92;
+background:#ff2f79;
 
 }
 
-/* ========================= */
-/* SELECTION */
-/* ========================= */
+/* ==========================================
+   SELECTION
+========================================== */
 
 ::selection{
 
-    background:#ff5fa2;
+background:#ff5ca8;
 
-    color:white;
+color:white;
 
 }
 
-/* ========================= */
-/* MOBILE */
-/* ========================= */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media(max-width:768px){
 
-.hero h1{
-
-font-size:34px;
-
-}
-
-.hero h2{
-
-font-size:27px;
-
-}
-
-.hero p{
-
-font-size:15px;
-
-}
-
-.glass-card{
-
-padding:24px;
-
-}
-
-.glass-card h2{
-
-font-size:25px;
-
-}
-
-.reason-card h3{
-
-font-size:20px;
-
-}
-
-.password-card{
-
-padding:28px;
-
-}
-
-.popup-card{
-
-padding:22px;
-
-}
-
-#floatingCounter{
-
-top:12px;
-
-right:12px;
-
-padding:12px 16px;
-
-}
-
-#dayCounter{
-
-font-size:20px;
-
-}
-
-}
-
-/* ========================= */
-/* SMALL PHONES */
-/* ========================= */
-
-@media(max-width:430px){
-
-.hero{
-
-padding:20px;
-
-}
-
-.hero h1{
-
-font-size:30px;
-
-}
-
-.hero h2{
-
-font-size:24px;
-
-}
-
-.glass-card{
-
-width:94%;
-
-}
-
-button{
-
-width:100%;
-
-}
-
-.password-card h2{
-
-font-size:24px;
-
-}
-
-.intro-icon{
-
-font-size:60px;
-
-}
-
-}
-
-/* ========================= */
-/* EXTRA ANIMATIONS */
-/* ========================= */
-
-.glass-card{
-
-animation:floatCard 6s ease-in-out infinite;
-
-}
-
-@keyframes floatCard{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-4px);
-
-}
-
-}
-
-.hero h1{
-
-animation:glow 3s infinite alternate;
-
-}
-
-@keyframes glow{
-
-from{
-
-text-shadow:0 0 10px rgba(255,90,150,.3);
-
-}
-
-to{
-
-text-shadow:0 0 25px rgba(255,90,150,.8);
-
-}
-
-}
 #miniPlayer{
 
-position:fixed;
+width:92%;
 
-right:-360px;
+left:50%;
 
-bottom:25px;
+right:auto;
 
-width:310px;
+transform:translateX(-50%);
 
-padding:14px;
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-background:rgba(255,255,255,.12);
-
-backdrop-filter:blur(20px);
-
-border-radius:22px;
-
-border:1px solid rgba(255,255,255,.15);
-
-transition:1s;
-
-z-index:9999;
+bottom:-140px;
 
 }
 
 #miniPlayer.show{
 
-right:20px;
+bottom:20px;
 
 }
 
 #albumArt{
 
-width:58px;
+width:52px;
 
-height:58px;
-
-border-radius:50%;
-
-animation:spin 8s linear infinite;
-
-}
-
-#albumArt.pause{
-
-animation-play-state:paused;
-
-}
-
-.musicInfo{
-
-flex:1;
+height:52px;
 
 }
 
 .musicInfo h4{
 
-margin-bottom:4px;
+font-size:15px;
 
 }
 
 .musicInfo p{
 
-font-size:13px;
-
-opacity:.75;
+font-size:12px;
 
 }
 
 #miniPlay{
 
-width:45px;
+width:42px;
 
-height:45px;
-
-border-radius:50%;
-
-padding:0;
+height:42px;
 
 }
 
-@keyframes spin{
+footer h2{
 
-from{
-
-transform:rotate(0deg);
-
-}
-
-to{
-
-transform:rotate(360deg);
+font-size:1.6rem;
 
 }
 
